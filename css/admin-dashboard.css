@@ -1,0 +1,401 @@
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* Overall page layout */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+}
+
+/* Header positioning */
+header {
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #4e3b31; /* Adjust as needed */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10; /* Makes sure the header stays on top of other content */
+}
+
+.dropdown {
+    flex-shrink: 0;
+}
+
+.dropdown img {
+    height: 20px;
+}
+
+.dropdown-nav {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 40px; /* Adjust this value according to the top-button position */
+    left: 0px; /* Align to the right */
+    z-index: 1000;
+}
+
+.dropdown-nav ul {
+    list-style-type: none;
+    background-color: #4e3b31;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-nav ul li {
+    padding: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.dropdown-nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-nav ul li:hover {
+    background-color: #2B193C;
+}
+
+.header-container {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.header-container #logo {
+    height: 50px; /* Adjust size as needed */
+}
+
+.admin-text {
+    flex-shrink: 0;
+    font-size: 1rem; /* Adjust size as needed */
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.header-right {
+    position: fixed;
+    top: 20px;
+    right: 120px; /* adjust as needed to avoid overlapping admin-profile */
+    text-align: right;
+    color: #ffffff;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    line-height: 1.4;
+    z-index: 99;
+  }
+  
+
+/* Sidebar */
+.sidebar {
+    position: fixed; 
+    overflow-y: auto; /* Enable scrolling when content exceeds height */
+    top: 0;
+    left: 0;
+    width: 250px; /* Sidebar width */
+    height: 100vh; /* Use the full viewport height */
+    background-color: #2B193C;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    padding-top: 40px;
+    z-index: 10; /* Ensure sidebar is above the content */
+    box-sizing: border-box; /* Include padding in width/height */
+}
+
+.sidebar .logo {
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    margin-bottom: 40px;
+}
+
+.sidebar .logo img {
+    width: 300px;
+    height: 130px;
+    margin-right: 10px;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    padding: 15px 15px;
+    font-weight: bold;
+}
+
+.sidebar a.active, .sidebar a:hover {
+    background-color: #2B193C;
+    padding-left: 30px;
+}
+
+.sidebar .icon {
+    width: 30px;
+    height: auto;
+    margin-right: 15px;
+}
+
+.admin-profile {
+    position: absolute; /* Use absolute positioning */
+    top: 15px;
+    right: 40px; /* Adjust the distance from the right */
+    display: flex;
+    align-items: center; /* Vertically align content */
+    gap: 10px; /* Add spacing between the image and text */
+}
+
+.admin-profile img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.admin-profile span {
+    font-weight: 900;
+    color: #333;
+}
+
+.welcome-message {
+    color: #2B193C;
+    padding: 15px;
+    border-radius: 8px;
+    font-weight: bolder;
+    font-size: 30px;
+    font-weight: 700;
+    text-align: left;
+}
+
+.sales-and-events {
+    display: flex;
+    flex: 2; /* Distribute space equally */
+    flex-direction: column;
+    gap: 20px;
+}
+
+.dashboard-content {
+    display: flex;
+    gap: 20px; /* Add spacing between columns */
+}
+
+.most-ordered {
+    flex: 1; /* Takes up less space */
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    margin-top: 20px;
+    margin-left: 250px; /* Adjust the left margin to match sidebar width */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    box-sizing: border-box;
+    font-size: larger;
+}
+
+.admin-profile {
+    position: fixed;
+    top: 20px;
+    right: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 100;
+  }
+  
+  .admin-profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
+  }
+
+  .sales-details {
+    display: flex;
+    justify-content: flex-start;  /* Align left */
+    align-items: center;
+    gap: 50px;                    /* Spacing between boxes */
+    padding: 20px;
+    border-radius: 10px;
+    flex-wrap: wrap;              /* Responsive for smaller screens */
+  }
+  
+  .metric-inline {
+    display: flex;
+    align-items: center;   /* align vertically center */
+    gap: 7px;              /* spacing between icon, text, and number */
+    font-size: 17px;
+    font-weight: bold;
+    color: #ffffff;
+    min-width: 250px;      /* optional: ensures even width if you want alignment */
+  }
+  
+  .metric-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+  }
+  
+  .order-number {
+    color: #ffffff;
+    font-weight: normal;
+    font-size: 16px;
+  }
+  
+
+  .dashboard-content {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .sales-and-events {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .most-ordered {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .section-icon {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    margin-right: 8px;
+  }
+  
+
+
+.modal {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5); 
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 300px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.modal button {
+    margin: 5px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: Lato;
+}
+
+.modal .confirm {
+    background-color: #4CAF50; 
+    color: white;
+}
+
+.modal .cancel {
+    background-color: #f44336; 
+    color: white;
+    font-family: Lato;
+}
+
+.sales-content,
+.event-content,
+.most-ordered-content {
+    background-color: #674287;;
+    color: #ffffff;
+    padding: 20px;
+    font-size: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: left;
+    box-sizing: border-box;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
+
+    /* Ensure equal width and height */
+    flex: 1; /* Allows flex items to grow or shrink equally */
+    display: flex;
+    flex-direction: column; /* Stack content vertically inside */
+}
+
+.system-settings {
+    flex: 1; /* Ensures the section grows/shrinks equally */
+    display: flex;
+    flex-direction: column;
+}
+
+.section-icon {
+    width: 25px;
+    height: auto;
+    margin-right: 15px;
+}
+
+
+.most-ordered-header {
+    font-size: 20px;
+    font-weight: bolder;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+
+@media (max-width: 875px) {
+    header {
+        display: flex;
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+    .welcome-message {
+        display: none;
+    }
+
+    .main-content {
+        margin-top: 40px;
+        margin-left: 4px;
+        flex-direction: column;
+    }
+
+    .dashboard-content {
+        flex-direction: column; /* Stack the content vertically */
+    }
+
+    .sales-and-events {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .event-content {
+        order: 1; /* Position the event-content panel first */
+    }
+
+    .most-ordered {
+        order: 2; /* Position the most-ordered panel below the event-content panel */
+    }
+}
