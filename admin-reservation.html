@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+        <title>Reservations</title>
+        <link rel="stylesheet" href="css/admin-reservation.css">
+    </head>
+    <body>
+<!--         <header>
+            <div class="dropdown">
+                <a href="#" class="top-left-button" id="dropdown-button">
+                    <img src="assets/admin-dropdown.png" class="dropdown-icon" alt="Dropdown Icon">
+                </a>
+                <div id="dropdown-nav" class="dropdown-nav">
+                    <ul>
+                        <li><a href="admin-dashboard.html">Dashboard</a></li>
+                        <li><a href="admin-sales.html">Sales</a></li>
+                        <li><a href="admin-orders.html">Orders</a></li>
+                        <li><a href="admin-products.html">Products</a></li>
+                        <li><a href="admin-events.html">Promos</a></li>
+                        <li><a href="admin-settings.html">Settings</a></li>
+                        <li><a href="#" onclick="showModal()">Log Out</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header> -->
+    
+        <div class="sidebar">
+            <div class="logo">
+                <img src="assets/images/gulperslogo.png" alt="Restaurant Logo">
+            </div>
+            <a href="admin-dashboard.html" class="dashboard-link active"><img src="assets/images/icons/dashboard.png" class="icon">Dashboard</a>
+            <a href="admin-reservation.html"><img src="assets/images/icons/reservations.png" class="icon">Reservations</a>
+            <a href="#"><img src="assets/images/icons/menu.png" class="icon">Menu</a>
+            <a href="#"><img src="assets/images/icons/employee.png" class="icon">Employee</a>
+            <br><br><br>
+            <a href="#"><img src="assets/images/icons/logs.png" class="icon">Logs</a>
+            <a href="#"><img src="assets/images/icons/settings.png" class="icon">Settings</a>
+            <a href="#" id="showLogout"><img src="assets/images/icons/logout.png" class="icon">Log Out</a>
+        </div>
+    
+        <div class="main-content">
+            <div class="welcome-message">Customer Reservations</div>
+        </div>
+    
+        <div id="logoutModal" class="modal">
+            <div class="modal-content">
+                <h3>Are you sure you want to log out?</h3>
+                <button class="confirm" onclick="confirmLogout()">Yes</button>
+                <button class="cancel" onclick="hideModal()">No</button>
+            </div>
+        </div>
+<!--         <script type="module" src="javascript/admin-dashboard.js"></script> -->
+    </body>
+</html>
