@@ -8,6 +8,75 @@ body {
   padding: 0;
   font-family: 'Lato', sans-serif;
 }
+.reservation-table-container {
+  background: white;
+  border: 2px solid #2B193C;
+  border-radius: 10px;
+  overflow: hidden;
+  font-family: 'Lato', sans-serif;
+  font-weight: 600;
+  margin-right: 20px;
+  text-align: center;
+}
+
+.reservation-header,
+.reservation-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr 0.5fr;
+  padding: 15px;
+  align-items: center;
+}
+
+.reservation-header {
+  background-color: #f2edf8;
+  font-size: 16px;
+  color: #2B193C;
+  border-bottom: 2px solid #ccc;
+  font-weight: bolder;
+}
+
+.reservation-row {
+  border-bottom: 1px solid #ddd;
+  font-size: 15px;
+  color: #2B193C;
+}
+
+.reservation-row:last-child {
+  border-bottom: none;
+}
+
+.badge {
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  display: inline-block;
+  min-width: 70px;
+}
+
+.badge.seated {
+  background-color: #58d68d;
+  color: #fff;
+}
+
+.badge.cancelled {
+  background-color: #ec7063;
+  color: #fff;
+}
+
+.badge.waiting {
+  background-color: #f4d03f;
+  color: #000;
+}
+
+.dots {
+  font-size: 20px;
+  cursor: pointer;
+  text-align: center;
+}
+
+
 
 /* Header positioning */
 header {
