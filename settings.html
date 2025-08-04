@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+        <title>Settings</title>
+        <link rel="stylesheet" href="css/settings.css">
+    </head>
+    <body>
+        <div class="sidebar">
+            <div class="logo">
+                <img src="assets/images/gulperslogo.png" alt="Restaurant Logo">
+            </div>
+            <a href="admin-dashboard.html"><img src="assets/images/icons/dashboard.png" class="icon">Dashboard</a>
+            <a href="admin-reservation.html"><img src="assets/images/icons/reservations.png" class="icon">Reservations</a>
+            <a href="admin-menu.html"><img src="assets/images/icons/menu.png" class="icon">Menu</a>
+            <a href="admin-employees.html"><img src="assets/images/icons/employee.png" class="icon">Employee</a>
+            <br><br><br>
+            <a href="#"><img src="assets/images/icons/logs.png" class="icon">Logs</a>
+            <a href="settings.html" class="dashboard-link active"><img src="assets/images/icons/settings.png" class="icon">Settings</a>
+            <a href="#" id="showLogout"><img src="assets/images/icons/logout.png" class="icon">Log Out</a>
+        </div>
+
+        <div class="main-content">
+            <div class="welcome-message">System Settings</div>
+            
+            <div class="settings-container">
+                <!-- Store Settings -->
+                <div class="settings-box">
+                    <div class="settings-header">
+                        <img src="assets/images/icons/settings.png" class="section-icon">
+                        <h2>Store Settings</h2>
+                    </div>
+                    <div class="settings-content">
+                        <div class="setting-item">
+                            <div class="setting-label">
+                                <span>Store Status</span>
+                                <p>Control whether your store is open or closed for orders</p>
+                            </div>
+                            <div class="toggle-container">
+                                <label class="toggle">
+                                    <input type="checkbox" id="storeStatus" checked>
+                                    <span class="slider"></span>
+                                </label>
+                                <span class="toggle-label" id="storeStatusLabel">OPEN</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Settings -->
+                <div class="settings-box">
+                    <div class="settings-header">
+                        <img src="assets/images/icons/settings.png" class="section-icon">
+                        <h2>Payment Settings</h2>
+                    </div>
+                    <div class="settings-content">
+                        <div class="setting-item">
+                            <div class="setting-label">
+                                <span>Payment Methods</span>
+                                <p>Select which payment methods to accept</p>
+                            </div>
+                            <div class="payment-options">
+                                <label class="checkbox-container">
+                                    <input type="checkbox" id="cashPayment" checked>
+                                    <span class="checkmark"></span>
+                                    <span class="checkbox-label">Cash</span>
+                                </label>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" id="gcashPayment" checked>
+                                    <span class="checkmark"></span>
+                                    <span class="checkbox-label">GCash</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Delivery Settings -->
+                <div class="settings-box">
+                    <div class="settings-header">
+                        <img src="assets/images/icons/settings.png" class="section-icon">
+                        <h2>Delivery Settings</h2>
+                    </div>
+                    <div class="settings-content">
+                        <div class="setting-item">
+                            <div class="setting-label">
+                                <span>Accept Orders</span>
+                                <p>Choose how customers can receive their orders</p>
+                            </div>
+                            <div class="delivery-options">
+                                <label class="radio-container">
+                                    <input type="radio" name="deliveryType" value="delivery" checked>
+                                    <span class="radio-checkmark"></span>
+                                    <span class="radio-label">Delivery</span>
+                                </label>
+                                <label class="radio-container">
+                                    <input type="radio" name="deliveryType" value="pickup">
+                                    <span class="radio-checkmark"></span>
+                                    <span class="radio-label">Pickup</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="setting-item" id="deliverySubOptions">
+                            <div class="setting-label">
+                                <span>Delivery Options</span>
+                                <p>Select delivery service type</p>
+                            </div>
+                            <div class="delivery-sub-options">
+                                <label class="radio-container">
+                                    <input type="radio" name="deliveryService" value="thirdParty" checked>
+                                    <span class="radio-checkmark"></span>
+                                    <span class="radio-label">Third Party Delivery</span>
+                                </label>
+                                <label class="radio-container">
+                                    <input type="radio" name="deliveryService" value="storeDelivery">
+                                    <span class="radio-checkmark"></span>
+                                    <span class="radio-label">Store Delivery</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="logoutModal" class="modal">
+            <div class="modal-content">
+                <h3>Are you sure you want to log out?</h3>
+                <button class="confirm" onclick="confirmLogout()">Yes</button>
+                <button class="cancel" onclick="hideModal()">No</button>
+            </div>
+        </div>
+
+        <script>
+            // Store Status Toggle
+            document.getElementById('storeStatus').addEventListener('change', function() {
+                const label = document.getElementById('storeStatusLabel');
+                if (this.checked) {
+                    label.textContent = 'OPEN';
+                    label.style.color = '#58d68d';
+                } else {
+                    label.textContent = 'CLOSED';
+                    label.style.color = '#ec7063';
+                }
+            });
+
+            // Delivery Type Radio Buttons
+            document.querySelectorAll('input[name="deliveryType"]').forEach(radio => {
+                radio.addEventListener('change', function() {
+                    const deliverySubOptions = document.getElementById('deliverySubOptions');
+                    if (this.value === 'delivery') {
+                        deliverySubOptions.style.display = 'block';
+                    } else {
+                        deliverySubOptions.style.display = 'none';
+                    }
+                });
+            });
+
+            // Logout Modal Functions
+            document.getElementById('showLogout').addEventListener('click', function() {
+                document.getElementById('logoutModal').style.display = 'block';
+            });
+
+            function hideModal() {
+                document.getElementById('logoutModal').style.display = 'none';
+            }
+
+            function confirmLogout() {
+                // Add logout logic here
+                window.location.href = 'login.html';
+            }
+
+            // Close modal when clicking outside
+            window.onclick = function(event) {
+                const modal = document.getElementById('logoutModal');
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            }
+        </script>
+    </body>
+</html>
