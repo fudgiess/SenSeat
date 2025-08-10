@@ -53,16 +53,32 @@ function updateDropdown() {
 		logoutLink.textContent = "LOGOUT";
 		logoutLink.addEventListener("click", async (e) => {
 			e.preventDefault();
-            
 			await signOut(auth);
-
 			alert("You’ve been logged out.");
 			updateDropdown();
-
-            window.location.href = "login.html";
+            loginLink.href = "login.html";
 		});
 
 		dropdown.appendChild(profileLink);
 		dropdown.appendChild(logoutLink);
 	}
 }
+
+const indoorButton = document.getElementById('indoor-button');
+const outdoorButton = document.getElementById('outdoor-button');
+
+indoorButton.addEventListener("click", function() {
+    const insideLayout = document.getElementById("inside-layout");
+    const outsideLayout = document.getElementById("outside-layout");
+
+    insideLayout.style.display = "none";
+    outsideLayout.style.display = "grid";
+});
+
+outdoorButton.addEventListener("click", function() {
+    const insideLayout = document.getElementById("inside-layout");
+    const outsideLayout = document.getElementById("outside-layout");
+
+    insideLayout.style.display = "grid";
+    outsideLayout.style.display = "none";
+});
