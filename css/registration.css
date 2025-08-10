@@ -1,7 +1,6 @@
 .hero {
     position: relative;
     width: 100%;
-    height: 100vh; 
     display: flex;
     align-items: center;
     
@@ -19,42 +18,9 @@
 }
 
 .hero-content {
-    position: relative;
     z-index: 2;
     color: #fff;
-    text-align: center;
-    
-}
-
-.hero-content h1 {
-    font-size: 3rem;
-    font-family: Montserrat, sans-serif;
-    font-weight: bold;
-    margin: 0.1em 0;
-    
-}
-
-.hero-content p {
-    font-size: 1.5rem;
-    font-family: Montserrat, sans-serif;
-    margin: 0.5rem 0;
-}
-
-.hero-content .button {
-    background: #7c5e99;
-    color: #fff;
-    padding: 15px 20px;
-    border: none;
-    text-decoration: none;
-    font-size: 16px;
-    margin-top: 1em;
-    display: inline-block;
-    transition: background 0.2s;
-    font-family: Montserrat, sans-serif;
-}
-
-.hero-content .button:hover {
-    background: #5a4373;
+    margin: 80px;
 }
 
 header {
@@ -84,48 +50,9 @@ header {
     flex-shrink: 0; /* Prevents logo from shrinking */
 }
 
-.profile-link {
-	position: relative;
-	display: flex;
-	align-items: center;
-	justify-content: flex-end;
-	width: 68px;
-	height: 100%;
-	cursor: pointer;
-}
-
-.profile-dropdown {
-	display: none;
-	position: absolute;
-	top: 75%;
-	right: 0;
-	background-color: white;
-	border: 1px solid #ccc;
-	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-	min-width: 120px;
-	z-index: 10;
-}
-
-.profile-dropdown a {
-	display: block;
-	padding: 8px 16px;
-	color: #000;
-	text-decoration: none;
-	font-size: 14px;
-}
-
-.profile-dropdown a:hover {
-	background-color: #cacaca;
-}
-
 #logo {
     height: 40px;
-    width: 68px;
-}
-
-#profile {
-    height: auto;
-    width: 35px;
+    width: auto;
 }
 
 nav {
@@ -136,18 +63,18 @@ nav {
 
 .nav-list {
     display: flex;
-    gap: 30px;
+    gap: 2.5em;
     list-style: none;
     margin: 0;
-    margin-left: 33px;
     padding: 0;
 }
 
 .nav-list li a {
     color: #fff;
     text-decoration: none;
-    font-size: 17px;
+    font-size: 1.1em;
     letter-spacing: 1px;
+    transition: color 0.2s;
 }
 
 .nav-list li a:hover {
@@ -171,85 +98,150 @@ html, body {
     justify-content: center;
 } 
 
-.info-sections {
-    width: 100%;
-    background: #fff;
-    padding: 3em 0;
-    box-sizing: border-box;
-}
-
-.menu-hospitality, .about-section {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 2em;
-    max-width: 1200px;
-    margin: 0 auto 3em auto;
-    flex-wrap: wrap;
-}
-
-.menu-images, .about-images {
-    display: flex;
-    gap: 1.5em;
-}
-
-.menu-image-card, .about-image-card {
-    background: #fff;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-    width: 300px;
+/* Content Styles */
+.content {
     text-align: center;
+    margin: 20px 0;
 }
 
-.menu-image-card img, .about-image-card img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-
-.menu-image-caption {
+.instruction {
+    font-size: 14px;
+    font-style: italic;
     font-weight: bold;
-    font-size: 1.2em;
-    padding: 0.5em 0;
-    background: #fff;
 }
 
-.menu-description, .about-description {
-    max-width: 400px;
+.label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+
+.hero-logo {
+    width: 300px;
+    display: block;
+    margin: 0 auto;
+}
+
+.home-link {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	width: 68px;
+	height: 100%;
+	cursor: pointer;
+}
+
+#home {
+    height: auto;
+    width: 35px;
+}
+
+/* Form Styles */
+form {
+    font-family: 'Montserrat';
     display: flex;
     flex-direction: column;
     justify-content: center;
-    font-family: Montserrat, sans-serif;
+    width: 100%;
+    max-width: 80%;
+    padding: 20px;
+    gap: 15px;
+    margin: 0 auto; /* ✅ This centers the form horizontally */
 }
 
-.menu-description h2, .about-description h2 {
-    font-size: 2em;
-    margin-bottom: 1px
+.input-group {
+    display: flex;
+    gap: 10px;
 }
 
-.menu-description p, .about-description p {
-    font-size: 1em;
-    margin-bottom: 1em;
-    
+/* Keep existing name-containers styling */
+.name-containers, .date-containers {
+    display: flex;
+    gap: 10px;
+    width: 100%;
 }
 
-.explore-button, .learnmore-button {
-    background: #10181b;
-    color: #fff;
-    padding: 15px 10px;
+.name-containers input, .date-containers select {
+    width: 100%;
+}
+
+.date-containers .input-wrapper {
+    width: 100%;
+}
+
+/* New layout styles */
+.single-line {
+    display: flex;
+    width: 100%;
+}
+
+.single-line .input-wrapper {
+    width: 100%;
+}
+
+.required {
+    color: red;
+}
+
+
+/* Ensure input padding is consistent */
+input, select {
+    width: 100%;
+    padding: 0 30px 0 20px;  /* Right padding for asterisk */
+    font-size: 14px;
     border: none;
-    text-decoration: none;
-    font-size: 1em;
-    transition: background 0.2s;
-    display: inline-block;
-    width: fit-content;
+    background-color: #d9d9d9ef;
+    height: 50px;
+    box-sizing: border-box;
 }
 
-.explore-button:hover, .learnmore-button:hover {
-    background: #7c5e99;
-} 
+input#contact-number::placeholder, .input-group.name-containers input::placeholder {
+    font-style: italic;
+}
+
+.submit-group {
+    display: flex;
+    justify-content: center;
+}
+
+button[type="submit"] {
+    padding: 15px;
+    font-size: 16px;
+    background-color: #7c5e99;
+    color: white;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    align-self: center;
+    width: 100%;
+}
+
+button[type="submit"]:hover {
+    background-color: #5a4373;
+}
+
+#existing {
+    text-align: center;
+    font-weight: bold;
+    text-decoration: underline;
+    font-size: 14px;
+    margin-top: 0;
+}
+
+a {
+    color: #fff; /* Replace with any desired color */
+    text-decoration: none; /* Optional */
+}
+
+/* Error message styling */
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+    display: block;
+}
 
 footer {
     background: #10181b;
@@ -344,4 +336,3 @@ footer {
     border-top: 1px solid #222;
     margin-top: 1em;
 } 
-
