@@ -5,11 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>The Gulper's Resturant</title>
         <link rel="stylesheet" href="css/index.css">
+        <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
     </head>
     <body>
         <header>
             <div class="header-container">
-                <a href="index" class="logo-link">
+                <a href="index.html" class="logo-link">
                     <img src="assets/images/gulperslogo.png" id="logo" alt="The Gulper's Bar & Resturant Logo">
                 </a>
                 <nav>
@@ -19,9 +20,17 @@
                         <li><a href="about.html">ABOUT</a></li>
                         <li><a href="contact.html">CONTACT</a></li>
                         <li><a href="seats.html">SEATS</a></li>
+                        <li><a href="reservation.html">RESERVE</a></li>
                     </ul>
                 </nav>
-                <a href="login.html" class="loginbutton" id="login">LOGIN</a>
+                <div class="profile-link">
+                    <img src="assets/images/icons/profile.png" id="profile" alt="Profile">
+
+                    <!-- Dropdown menu -->
+                    <div class="profile-dropdown" id="profile-dropdown">
+                        <!-- Content will be injected via JS -->
+                    </div>
+                </div>
             </div>
         </header>
 
@@ -30,7 +39,7 @@
                 <p>The Gulper's Bar & Resturant</p>
                 <h1>Where Every Bite Goes Best With A Bottle.</h1>
                 <p>Your Friendly Neighborhood Bar & Restaurant</p>
-                <a href="about.html" class="button">RESERVE A TABLE</a>
+                <a href="reservation.html" class="button">RESERVE A TABLE</a>
             </div>
         </section>
 
@@ -127,5 +136,6 @@
                 &copy; 2024 The Gulper's Bar & Restaurant. All rights reserved.
             </div>
         </footer>
+        <script src="javascript/index.js" type="module"></script>
     </body>
 </html>

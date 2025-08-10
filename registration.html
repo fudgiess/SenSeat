@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Gulper's Registration</title>
-    <link rel="stylesheet" href="css/login.css">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link rel="stylesheet" href="css/registration.css">
 </head>
 <body>
 
@@ -21,7 +22,9 @@
                     <li><a href="contact.html">CONTACT</a></li>
                 </ul>
             </nav>
-            
+            <a href="index.html" class="home-link">
+                <img src="assets/images/icons/home.png" id="home" alt="Home">
+            </a>
         </div>
     </header>
 
@@ -30,15 +33,105 @@
             <img src="assets/images/gulperslogo.png" alt="The Gulper's Logo" class="hero-logo">
 
             <form class="login-form" action="#" method="POST">
-                <label for="email">EMAIL</label>
-                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                <span class="instruction">Fields with<span class="required"> * </span>are required</span>
+                <div class="input-group name-containers">
+                    <div class="input-wrapper">
+                        <span class="label">First Name<span class="required"> *</span></span>
+                        <input type="text" id="first-name" name="first-name" placeholder="ex. Juan">
+                    </div>
+                    <div class="input-wrapper">
+                        <span class="label">Middle Name</span>
+                        <input type="text" id="middle-name" name="middle-name" placeholder="ex. Dela">
+                    </div>
+                    <div class="input-wrapper">
+                        <span class="label">Last Name<span class="required"> *</span></span>
+                        <input type="text" id="last-name" name="last-name" placeholder="ex. Cruz">
+                    </div>
+                </div>
 
-                <label for="password">PASSWORD</label>
-                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                <div class="input-group single-line">
+                    <div class="input-wrapper">
+                        <span class="label">Contact Number<span class="required"> *</span></span>
+                        <input type="text" id="contact-number" name="contact-number" placeholder="ex. 09123456789" maxlength="11" pattern="[0-9]{11}">
+                    </div>
+                </div>
 
-                <p class="signup-link">Already have an account? <a href="login.html">Login here</a></p>
+                <div class="input-group date-containers">
+                    <!-- Birth Month Dropdown -->
+                    <div class="input-wrapper">
+                        <span class="label">Birth Month<span class="required"> *</span></span></span>
+                        <select id="birth-month" name="birth-month">
+                            <option value="">Month</option>
+                            <option value="1">January</option>
+                            <option value="2">February</option>
+                            <option value="3">March</option>
+                            <option value="4">April</option>
+                            <option value="5">May</option>
+                            <option value="6">June</option>
+                            <option value="7">July</option>
+                            <option value="8">August</option>
+                            <option value="9">September</option>
+                            <option value="10">October</option>
+                            <option value="11">November</option>
+                            <option value="12">December</option>
+                        </select>
+                    </div>
 
-                <button type="submit" class="login-btn">REGISTER</button>
+                    <!-- Birth Year Dropdown -->
+                    <div class="input-wrapper">
+                        <span class="label">Birth Year<span class="required"> *</span></span>
+                        <select id="birth-year" name="birth-year">
+                            <option value="">Year</option>
+                            <!-- Example range: 1900 to current year -->
+                            <!-- JavaScript can generate dynamically, but for static HTML: -->
+                            <option value="2025">2025</option>
+                            <option value="2024">2024</option>
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
+                            <!-- Add more down to 1900 -->
+                        </select>
+                    </div>
+
+                    <!-- Birth Day Dropdown -->
+                    <div class="input-wrapper">
+                        <span class="label">Birth Day<span class="required"> *</span></span>
+                        <select id="birth-day" name="birth-day">
+                            <option value="">Day</option>
+                            <!-- Days 1–31 -->
+                            <!-- You can use a loop to generate these in backend -->
+                            <!-- Or just paste below manually -->
+                            <!-- Example up to 31 -->
+                            <!-- You can also generate these dynamically if using JavaScript -->
+                        </select>
+                    </div>
+                </div>
+
+                <div class="input-group single-line">
+                    <div class="input-wrapper">
+                        <span class="label">Email<span class="required"> *</span></span>
+                        <input type="email" id="email" name="email" placeholder="Email">
+                    </div>
+                </div>
+
+                <div class="input-group single-line">
+                    <div class="input-wrapper">
+                        <span class="label">Password<span class="required"> *</span></span>
+                        <input type="password" id="password" name="password" placeholder="Password">
+                    </div>
+                </div>
+
+                <div class="input-group single-line">
+                    <div class="input-wrapper">
+                        <span class="label">Confirm Password<span class="required"> *</span></span>
+                        <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm Password">
+                    </div>
+                </div>
+
+                <p id="existing"><a href="login.html">Already have an account? Sign-in Here!</a></p>
+
+                <div class="submit-group">
+                    <button type="submit" id="submit">REGISTER</button>
+                </div>
             </form>
         </div>
     </section>
@@ -83,7 +176,7 @@
             &copy; 2024 The Gulper's Bar & Restaurant. All rights reserved.
         </div>
     </footer>
-
+    <script src="javascript/registration.js" type="module"></script>
 </body>
 </html>
 

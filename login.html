@@ -4,12 +4,13 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>The Gulper's Resturant</title>
+        <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
         <link rel="stylesheet" href="css/login.css">
     </head>
     <body>
         <header>
             <div class="header-container">
-                <a href="index" class="logo-link">
+                <a href="index.html" class="logo-link">
                     <img src="assets/images/gulperslogo.png" id="logo" alt="The Gulper's Bar & Resturant Logo">
                 </a>
                 <nav>
@@ -20,26 +21,47 @@
                         <li><a href="contact.html">CONTACT</a></li>
                     </ul>
                 </nav>
-<!--                 <a href="login.html" class="loginbutton" id="login">LOGIN</a> -->
+                <a href="index.html" class="home-link">
+                    <img src="assets/images/icons/home.png" id="home" alt="Home">
+                </a>
             </div>
         </header>
 
         <section class="hero">
             <div class="hero-content">
-    <img src="assets/images/gulperslogo.png" alt="The Gulper's Logo" class="hero-logo">
+                <img src="assets/images/gulperslogo.png" alt="The Gulper's Logo" class="hero-logo">
 
-    <form class="login-form" action="#" method="POST">
-        <label for="email">EMAIL</label>
-        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                <form class="login-form" action="#" method="POST">
+                    <div class="input-group single-line">
+                        <div class="input-wrapper">
+                            <span class="label">Email</span>
+                            <input type="email" id="email" name="email" placeholder="Email">
+                        </div>
+                    </div>
 
-        <label for="password">PASSWORD</label>
-        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                    <div class="input-group single-line">
+                        <div class="input-wrapper">
+                            <span class="label">Password</span>
+                            <input type="password" id="password" name="password" placeholder="Password">
+                        </div>
+                    </div>
 
-        <p class="signup-link">No account? <a href="register.html">Sign up here</a></p>
+                    <p id="existing"><a href="registration.html">Don't have an account? Sign-up Here!</a></p>
 
-        <button type="submit" class="login-btn">LOGIN</button>
-    </form>
-</div>
+                    <div class="submit-group">
+                        <button type="submit" id="submit">LOGIN</button>
+                    </div>
+                    <p id="forgot-password"><a href="#">Forgot Password</a></p>
+                    
+                    <div class="login-divider">
+                        <span>OR LOGIN WITH</span>
+                    </div>
+                    
+                    <div class="google-group">
+                        <button id="google"><img src="assets/images/icons/google_logo.png" id="google_logo">LOGIN WITH GOOGLE</button>
+                    </div>
+                </form>
+            </div>
         </section>
 
         <footer>
@@ -83,5 +105,6 @@
                 &copy; 2024 The Gulper's Bar & Restaurant. All rights reserved.
             </div>
         </footer>
+        <script src="javascript/login.js" type="module"></script>
     </body>
 </html>
