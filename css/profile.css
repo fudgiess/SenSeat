@@ -1,0 +1,557 @@
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    text-align: center;
+    font-family: Montserrat, sans-serif;
+    
+}
+
+
+#logo {
+    height: 40px;
+    width: 68px;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    font-family: Montserrat, sans-serif;
+    font-weight: bold;
+    margin: 0.1em 0;
+    
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    font-family: Montserrat, sans-serif;
+    margin: 0.5rem 0;
+}
+
+.hero-content .button {
+    background: #7c5e99;
+    color: #fff;
+    padding: 0.75em 2em;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    margin-top: 1em;
+    display: inline-block;
+    transition: background 0.2s;
+    font-family: Montserrat, sans-serif;
+}
+
+.hero-content .button:hover {
+    background: #5a4373;
+}
+
+.imaginary-div {
+    height: 40px;
+    width: 100%;
+}
+
+header {
+    width: 100%;
+    background: #10181b;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.header-container {
+    max-width: 1800px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: Montserrat, sans-serif;
+    padding: 0.5em 2em;
+    height: 60px;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    flex-shrink: 0; /* Prevents logo from shrinking */
+}
+
+
+
+nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-list {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    margin: 0;
+    margin-left: 33px;
+    padding: 0;
+}
+
+.nav-list li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 17px;
+    letter-spacing: 1px;
+}
+
+.nav-list li a:hover {
+    color: #7c5e99;
+}
+
+#logoutBtn {
+    background: #7c5e99;
+    color: #fff;
+    padding: 0.5em 2em;
+    border: none;
+    border-radius: 2px;
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: 500;
+    transition: background 0.2s;
+    margin-left: auto; /* Pushes login to the far right */
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#logoutBtn:hover {
+    background: #5a4373;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    
+}
+
+html, body {
+    border: none;
+    outline: none;
+}
+
+.header-container > nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+} 
+
+.info-sections {
+    width: 100%;
+    background: #fff;
+    padding: 3em 0;
+    box-sizing: border-box;
+}
+
+.menu-hospitality, .about-section {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 2em;
+    max-width: 1200px;
+    margin: 0 auto 3em auto;
+    flex-wrap: wrap;
+}
+
+.menu-images, .about-images {
+    display: flex;
+    gap: 1.5em;
+}
+
+.menu-image-card, .about-image-card {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    width: 300px;
+    text-align: center;
+}
+
+.menu-image-card img, .about-image-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+.menu-image-caption {
+    font-weight: bold;
+    font-size: 1.2em;
+    padding: 0.5em 0;
+    background: #fff;
+}
+
+.menu-description, .about-description {
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: Montserrat, sans-serif;
+}
+
+.menu-description h2, .about-description h2 {
+    font-size: 2em;
+    margin-bottom: 1px
+}
+
+.menu-description p, .about-description p {
+    font-size: 1em;
+    margin-bottom: 1em;
+    
+}
+
+.explore-button, .learnmore-button {
+    background: #10181b;
+    color: #fff;
+    padding: 0.75em 2em;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 1em;
+    transition: background 0.2s;
+    display: inline-block;
+    width: fit-content;
+}
+
+.explore-button:hover, .learnmore-button:hover {
+    background: #7c5e99;
+} 
+
+footer {
+    background: #10181b;
+    color: #fff;
+    font-family: Montserrat, sans-serif;
+}
+
+.footer-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2em 2em 1em 2em;
+    gap: 2em;
+    flex-wrap: wrap;
+}
+
+.footer-col {
+    flex: 1 1 250px;
+    min-width: 220px;
+}
+
+.footer-col h3 {
+    margin-top: 0;
+    margin-bottom: 1em;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-col ul li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.8em;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.footer-icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-right: 2.5em;
+    margin-bottom: 1em;
+    text-align: center;
+    
+    
+    color: #fff;
+    border-radius: 50%;
+    font-size: 1em;
+    line-height: 24px;
+}
+
+.footer-logo {
+    display: block;
+    margin:  2em auto 1em auto;
+    max-width: 20em;
+    height: auto;
+    width: auto;
+}
+
+.footer-col.hours p {
+    
+    font-size: 1em;
+    line-height: 1.5;
+    font-weight: lighter;
+}
+.footer-col.hours h3 {
+    
+    font-size: 1.5em;
+    line-height: 1em;
+    
+}
+.footer-col.contact h3 {
+    
+    font-size: 1.5em;
+    line-height: 1em;
+    
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 0.95em;
+    color: #bbb;
+    padding: 0.7em 0 1em 0;
+    border-top: 1px solid #222;
+    margin-top: 1em;
+} 
+
+
+.profile-link {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	width: 68px;
+	height: 100%;
+	cursor: pointer;
+}
+
+.profile-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5em 3em;
+  width: 1000px;
+  margin: 2em auto;
+  text-align: left;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  font-family: Montserrat, sans-serif;
+}
+
+.form-group label {
+  font-size: 0.9em;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+  color: #333;
+  font-family: Montserrat, sans-serif;
+}
+
+.form-group input {
+  padding: 0.6em;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  font-size: 1em;
+  font-family: Montserrat, sans-serif;
+}
+
+#saveBtn {
+  grid-column: span 2;
+  background: #7c5e99;
+  color: #fff;
+  border: none;
+  padding: 0.75em;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 1em;
+  width: 150px;
+  margin-left: auto;
+  font-family: Montserrat, sans-serif;
+}
+
+#saveBtn:hover {
+  background: #5a4373;
+}
+
+
+#profile {
+    height: auto;
+    width: 35px;
+}
+
+
+.profile-dropdown {
+	display: none;
+	position: absolute;
+	top: 75%;
+	right: 0;
+	background-color: white;
+	border: 1px solid #ccc;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+	min-width: 120px;
+	z-index: 10;
+}
+
+.profile-dropdown a {
+	display: block;
+	padding: 8px 16px;
+	color: #000;
+	text-decoration: none;
+	font-size: 14px;
+}
+
+.profile-dropdown a:hover {
+	background-color: #cacaca;
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* Top section with background image */
+.hero-top img {
+    width: 100%;
+    height: 300px; /* adjust height as needed */
+    object-fit: cover; /* crop/cover nicely */
+    margin: 0;
+
+}
+
+.hero-top {
+    width: 100%;
+    padding: 0;
+}
+
+/* Bottom section */
+.hero-bottom {
+    padding: 40px 20px;
+    background: #fff; /* contrast background for form */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+button {
+    margin-top: 15px;
+    padding: 12px;
+    width: 100%;
+    background: #a83232;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #8c2929;
+}
+
+
+/* --- Logout Modal --- */
+.modal {
+  display: none; 
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5); 
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 2em;
+  border-radius: 10px;
+  text-align: center;
+  width: 350px;
+  max-width: 90%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  animation: fadeIn 0.3s ease-in-out;
+  font-family: Montserrat, sans-serif;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  font-size: 1.5em;
+  font-family: Montserrat, sans-serif;
+}
+
+.modal-actions {
+  margin-top: 1.5em;
+  display: flex;
+  justify-content: space-around;
+}
+
+.modal-actions button {
+  padding: 0.6em 1.5em;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#cancelLogout {
+  background: #ccc;
+  color: #333;
+  width: 150px;
+  font-family: Montserrat, sans-serif;
+}
+
+#cancelLogout:hover {
+  background: #aaa;
+}
+
+#confirmLogout {
+  background: #a83232;
+  color: #fff;
+  width: 150px;
+  font-family: Montserrat, sans-serif;
+}
+
+#confirmLogout:hover {
+  background: #8c2929;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
