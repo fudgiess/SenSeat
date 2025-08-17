@@ -4,7 +4,6 @@
     height: 100vh; 
     display: flex;
     align-items: center;
-    
     justify-content: center;
     margin-top: 60px;
 }
@@ -22,7 +21,6 @@
     z-index: 2;
     color: #fff;
     text-align: center;
-    
 }
 
 .hero-content h1 {
@@ -30,7 +28,6 @@
     font-family: Montserrat, sans-serif;
     font-weight: bold;
     margin: 0.1em 0;
-    
 }
 
 .hero-content p {
@@ -139,7 +136,6 @@ nav {
 body {
     margin: 0;
     padding: 0;
-    
 }
 
 html, body {
@@ -190,7 +186,6 @@ html, body {
     display: block;
 }
 
-
 .menu-image-caption {
     font-weight: bold;
     font-size: 1.2em;
@@ -214,7 +209,6 @@ html, body {
 .menu-description p, .about-description p {
     font-size: 1em;
     margin-bottom: 1em;
-    
 }
 
 .explore-button, .learnmore-button {
@@ -284,8 +278,6 @@ footer {
     margin-right: 2.5em;
     margin-bottom: 1em;
     text-align: center;
-    
-    
     color: #fff;
     border-radius: 50%;
     font-size: 1em;
@@ -301,22 +293,17 @@ footer {
 }
 
 .footer-col.hours p {
-    
     font-size: 1em;
     line-height: 1.5;
     font-weight: lighter;
 }
 .footer-col.hours h3 {
-    
     font-size: 1.5em;
     line-height: 1em;
-    
 }
 .footer-col.contact h3 {
-    
     font-size: 1.5em;
     line-height: 1em;
-    
 }
 
 .footer-bottom {
@@ -327,3 +314,152 @@ footer {
     border-top: 1px solid #222;
     margin-top: 1em;
 } 
+
+/* ---------------- MENU SECTION ---------------- */
+.menu-section {
+    padding: 2em;
+    background: url("assets/images/gulperslogo.png") no-repeat center center/cover;
+    min-height: 100vh;
+    font-family: Montserrat, sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+/* Search + Cart */
+.menu-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    margin-bottom: 1.5em;
+}
+
+.menu-search {
+    width: 60%;
+    padding: 0.8em;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+}
+
+/* Cart Button */
+.cart-btn {
+    background: #7c5e99;
+    border: none;
+    padding: 0.6em 1em;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.cart-btn img {
+    width: 20px;
+    height: 20px;
+}
+
+/* Categories */
+.menu-categories {
+    display: flex;
+    justify-content: center;
+    gap: 1.5em;
+    margin-bottom: 2em;
+}
+
+.menu-categories button {
+    background: transparent;
+    border: none;
+    font-size: 1em;
+    cursor: pointer;
+    padding: 0.5em 1em;
+    color: #000000;
+    transition: 0.2s;
+}
+
+.menu-categories .active,
+.menu-categories button:hover {
+    border-bottom: 2px solid #7c5e99;
+    color: #7c5e99;
+}
+
+/* Menu Grid */
+.menu-grid {
+    display: flex;               
+    justify-content: center;     
+    gap: 2em;                     
+    flex-wrap: wrap;              
+}
+
+/* Menu Cards (Frosted Glass) */
+.menu-card {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    text-align: center;
+    padding: 1em;
+    position: relative;
+    width: 260px;
+    color: #000000;
+}
+
+.menu-card img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 0.5em;
+}
+
+.menu-card h3 {
+    font-size: 1.2em;
+    color: #000000;
+    margin: 0.5em 0;
+}
+
+.menu-card p {
+    font-size: 0.9em;
+    color: #919191;
+    margin-bottom: 1em;
+}
+
+.menu-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1em;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #000000;
+}
+
+/* Add to Cart Button */
+.add-to-cart {
+    background: #7c5e99;
+    color: #fff;
+    border: none;
+    padding: 0.5em 1.65em;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.25em;
+    transition: 0.2s;
+}
+
+.menu-info .servings {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.icon {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+}
+
+.add-to-cart:hover {
+    background: #5a4373;
+}
+
+.add-to-cart img {
+    width: 20px;
+    height: 20px;
+}
