@@ -1,75 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>The Gulper's Resturant</title>
-        <link rel="stylesheet" href="css/menu.css">
-    </head>
-    <body>
-        <header>
-            <div class="header-container">
-                <a href="index" class="logo-link">
-                    <img src="assets/images/gulperslogo.png" id="logo" alt="The Gulper's Bar & Resturant Logo">
-                </a>
-                <nav>
-                    <ul class="nav-list">
-                        <li><a href="index.html">HOME</a></li>
-                        <li><a href="menu.html">MENU</a></li>
-                        <li><a href="about.html">ABOUT</a></li>
-                        <li><a href="contact.html">CONTACT</a></li>
-                    </ul>
-                </nav>
-                <a href="login.html" class="loginbutton" id="login">LOGIN</a>
-            </div>
-        </header>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Gulper's Resturant</title>
+    <link rel="stylesheet" href="css/menu.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="header-container">
+            <a href="index" class="logo-link">
+                <img src="assets/images/gulperslogo.png" id="logo" alt="The Gulper's Bar & Resturant Logo">
+            </a>
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="menu.html">MENU</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                </ul>
+            </nav>
+            <a href="login.html" class="loginbutton" id="login">LOGIN</a>
+        </div>
+    </header>
 
-        <section class="hero">
-            <div class="hero-content">
-                <h1>This is the Menu Page</h1>
-            </div>
-        </section>
+    <!-- MENU SECTION -->
+    <section class="menu-section">
+        <!-- Search + Cart -->
+        <div class="menu-header">
+            <input type="text" placeholder="Search" class="menu-search">
+            <button class="cart-btn">
+                <img src="assets/images/icons/cart.png" alt="cart">
+            </button>
+        </div>
 
-        <footer>
-            <div class="footer-main">
-                <div class="footer-col contact">
-                    <h3>Contact Us</h3>
-                    <ul>
-                        <li>
-                            <a href="#"  class="footer-icon phone-icon"><img src="assets/images/icons/phone.png" alt="phone icon"></a>
-                            <span>+639958142352 / +6399275849302</span>
-                        </li>
-                        <li>
-                            <a href="#" class="footer-icon instagram-icon"><img src="assets/images/icons/instagram.png" alt="instagram icon"></a>
-                            <span>@gulpersresto</span>
-                        </li>
-                        <li>
-                            <a href="#" class="footer-icon facebook-icon"><img src="assets/images/icons/fb.png" alt="fb icon"></a>
-                            <span>facebook.com/GulpersRestaurant</span>
-                        </li>
-                        <li>
-                            <a href="#" class="footer-icon email-icon"><img src="assets/images/icons/email.png" alt="email icon"></a>
-                            <span>marketing.bryramal@gmail.com</span>
-                        </li>
-                    </ul>
+        <!-- Categories -->
+        <div class="menu-categories">
+            <button class="active">All</button>
+            <button>Breakfast</button>
+            <button>Lunch</button>
+            <button>Treats</button>
+            <button>Dessert</button>
+        </div>
+
+            <!-- Menu Items Grid -->
+        <div class="menu-grid">
+            <!-- Card 1 -->
+            <div class="menu-card">
+                <img src="assets\images\menuitems\bulalosteak.png" alt="Ginisang Caterpilar">
+                <h3>Bulalo Steak</h3>
+                <p>Special house recipe with unique flavors</p>
+                <div class="menu-info">
+                    <span class="price">₱300</span>
+                    <span class="servings">👥 2-4</span>
                 </div>
-                <div class="footer-col logo">
-                    
-                    <img src="assets/images/gulperslogo.png" alt="The Gulper's Bar & Restaurant Logo" class="footer-logo">
-                </div>
-                <div class="footer-col hours">
-                    <h3>Convenience &amp; Service Hours</h3>
-                    <p>
-                        Whether you’re dropping by for dine-in or need delivery/takeout, 
-                        The Gulpers’ makes it easy. We’re open every day, generally from 
-                        10 AM until 2 AM, and even during the enhanced community quarantine,
-                         we continued serving customers via takeout and delivery.
-                    </p>
+                <button class="add-to-cart">🛒</button>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="menu-card">
+                <img src="assets\images\menuitems\bulalosteak.png" alt="Adobong Dragon">
+                <h3>Bulalo Steak</h3>
+                <p>Special house recipe with unique flavors</p>
+                <div class="menu-info">
+                    <span class="price">₱ 450</span>
+                    <span class="servings">👥 3-5</span>
                 </div>
             </div>
-            <div class="footer-bottom">
-                &copy; 2024 The Gulper's Bar & Restaurant. All rights reserved.
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-main">
+            <div class="footer-col contact">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li>
+                        <a href="#"  class="footer-icon phone-icon"><img src="assets/images/icons/phone.png" alt="phone icon"></a>
+                        <span>+639958142352 / +6399275849302</span>
+                    </li>
+                    <li>
+                        <a href="#" class="footer-icon instagram-icon"><img src="assets/images/icons/instagram.png" alt="instagram icon"></a>
+                        <span>@gulpersresto</span>
+                    </li>
+                    <li>
+                        <a href="#" class="footer-icon facebook-icon"><img src="assets/images/icons/fb.png" alt="fb icon"></a>
+                        <span>facebook.com/GulpersRestaurant</span>
+                    </li>
+                    <li>
+                        <a href="#" class="footer-icon email-icon"><img src="assets/images/icons/email.png" alt="email icon"></a>
+                        <span>marketing.bryramal@gmail.com</span>
+                    </li>
+                </ul>
             </div>
-        </footer>
-    </body>
+            <div class="footer-col logo">
+                <img src="assets/images/gulperslogo.png" alt="The Gulper's Bar & Restaurant Logo" class="footer-logo">
+            </div>
+            <div class="footer-col hours">
+                <h3>Convenience &amp; Service Hours</h3>
+                <p>
+                    Whether you’re dropping by for dine-in or need delivery/takeout, 
+                    The Gulpers’ makes it easy. We’re open every day, generally from 
+                    10 AM until 2 AM, and even during the enhanced community quarantine,
+                    we continued serving customers via takeout and delivery.
+                </p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 The Gulper's Bar & Restaurant. All rights reserved.
+        </div>
+    </footer>
+</body>
 </html>
