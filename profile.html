@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>The Gulper's Resturant</title>
+        <link rel="stylesheet" href="css/profile.css">
+        <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    </head>
+    <body>
+        <header>
+            <div class="header-container">
+                <a href="index.html" class="logo-link">
+                    <img src="assets/images/gulperslogo.png" id="logo" alt="The Gulper's Bar & Resturant Logo">
+                </a>
+                <nav>
+                    <ul class="nav-list">
+                        <li><a href="index.html">HOME</a></li>
+                        <li><a href="menu.html">MENU</a></li>
+                        <li><a href="about.html">ABOUT</a></li>
+                        <li><a href="contact.html">CONTACT</a></li>
+                        <li><a href="seats.html">SEATS</a></li>
+                        <li><a href="reservation.html">RESERVE</a></li>
+                    </ul>
+                </nav>
+                <div class="profile-link">
+                    <img src="assets/images/icons/profile.png" id="profile" alt="Profile">
+
+                    <!-- Dropdown menu -->
+                    <div class="profile-dropdown" id="profile-dropdown">
+                        <!-- Content will be injected via JS -->
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section class="hero">
+    <!-- Top Section with background image -->
+    <div class="imaginary-div">
+
+    </div>
+    <div class="hero-top">
+        <img src="assets/images/background.png" alt="Restaurant Background">
+    </div>
+
+    <!-- Bottom Section with user info -->
+    <div class="hero-bottom">
+        <div class="hero-content">
+            <div class="profile-form">
+                <div class="form-group">
+                    <label for="fullname">FULL NAME</label>
+                    <input type="text" id="fullname">
+                </div>
+
+                <div class="form-group">
+                    <label for="birthday">BIRTHDAY</label>
+                    <input type="date" id="birthday">
+                </div>
+
+                <div class="form-group">
+                    <label for="contact">CONTACT NUMBER</label>
+                    <input type="text" id="contact">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">EMAIL</label>
+                    <input type="email" id="email" />
+                </div>
+
+                <div class="form-group">
+                    <label for="password">PASSWORD</label>
+                    <input type="password" id="password" placeholder="Change password">
+                </div>
+
+                <button id="saveBtn">SAVE CHANGES</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-main">
+                <div class="footer-col contact">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li>
+                            <a href="#"  class="footer-icon phone-icon"><img src="assets/images/icons/phone.png" alt="phone icon"></a>
+                            <span>+639958142352 / +6399275849302</span>
+                        </li>
+                        <li>
+                            <a href="#" class="footer-icon instagram-icon"><img src="assets/images/icons/instagram.png" alt="instagram icon"></a>
+                            <span>@gulpersresto</span>
+                        </li>
+                        <li>
+                            <a href="#" class="footer-icon facebook-icon"><img src="assets/images/icons/fb.png" alt="fb icon"></a>
+                            <span>facebook.com/GulpersRestaurant</span>
+                        </li>
+                        <li>
+                            <a href="#" class="footer-icon email-icon"><img src="assets/images/icons/email.png" alt="email icon"></a>
+                            <span>marketing.bryramal@gmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-col logo">
+                    
+                    <img src="assets/images/gulperslogo.png" alt="The Gulper's Bar & Restaurant Logo" class="footer-logo">
+                </div>
+                <div class="footer-col hours">
+                    <h3>Convenience &amp; Service Hours</h3>
+                    <p>
+                        Whether you’re dropping by for dine-in or need delivery/takeout, 
+                        The Gulpers’ makes it easy. We’re open every day, generally from 
+                        10 AM until 2 AM, and even during the enhanced community quarantine,
+                         we continued serving customers via takeout and delivery.
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2024 The Gulper's Bar & Restaurant. All rights reserved.
+            </div>
+        </footer>
+
+                <!-- Logout Confirmation Modal -->
+        <div id="logoutModal" class="modal">
+        <div class="modal-content">
+            <h2>Confirm Logout</h2>
+            <p>Are you sure you want to log out?</p>
+            <div class="modal-actions">
+            <button id="cancelLogout">Cancel</button>
+            <button id="confirmLogout">Log Out</button>
+            </div>
+        </div>
+        </div>
+
+        <script type="module" src="javascript/profile.js"></script>
+
+    </body>
+</html>
