@@ -34,6 +34,9 @@ window.onclick = (event) => {
     }
 };
 
+// Table body reference
+const tableBody = document.querySelector(".menu-table-container tbody");
+
 /////////////////
 // Add Product //
 /////////////////
@@ -115,6 +118,98 @@ document.getElementById("productDateTimeNow").addEventListener("click", () => {
     const hours = String(now.getHours()).padStart(2, "0");
     const minutes = String(now.getMinutes()).padStart(2, "0");
     document.getElementById("productTime").value = `${hours}:${minutes}`;
+});
+
+//////////////////
+// Edit Product //
+//////////////////
+
+const editProductModal = document.getElementById("editProductModal");
+const closeEditModal = document.getElementById("closeEditModal");
+const editProductForm = document.getElementById("editProductForm");
+const editCategorySelect = document.getElementById("editCategory");
+
+let currentEditId = null;
+
+// Open modal when "More" is clicked
+tableBody.addEventListener("click", async (e) => {
+	if (e.target.classList.contains("more-btn")) {
+		currentEditId = e.target.dataset.id;
+
+		// Fetch product data
+		const docRef = doc(db, "products", currentEditId);
+		const docSnap = await getDoc(docRef);
+
+		if (docSnap.exists()) {
+			const product = docSnap.data();
+
+			// Fill form
+			document.getElementById("editName").value = product.name || "";
+			document.getElementById("editPrice").value = product.price || "";
+			document.getElementById("editDate").value = product.date || "";
+			document.getElementById("editTime").value = product.time || "";
+
+			// Load categories into dropdown
+			await loadCategoriesForEdit(product.category?.category_uid);
+
+			editProductModal.style.display = "flex";
+		}
+	}
+});
+
+// Close modal
+closeEditModal.addEventListener("click", () => {
+	editProductModal.style.display = "none";
+});
+
+// Handle Save Changes
+editProductForm.addEventListener("submit", async (e) => {
+	e.preventDefault();
+
+	if (!currentEditId) return;
+
+	// Get selected category
+	const selectedCategory = editCategorySelect.options[editCategorySelect.selectedIndex];
+	const categoryName = selectedCategory.text;
+	const categoryUid = selectedCategory.value;
+
+	// Update Firestore
+	await updateDoc(doc(db, "products", currentEditId), {
+		name: document.getElementById("editName").value,
+		price: parseFloat(document.getElementById("editPrice").value),
+		date: document.getElementById("editDate").value,
+		time: document.getElementById("editTime").value,
+		category: {
+			category_name: categoryName,
+			category_uid: categoryUid
+		}
+	});
+
+	editProductModal.style.display = "none";
+});
+
+// Edit Product Modal "Now" Button
+document.addEventListener("DOMContentLoaded", () => {
+    const nowBtn = document.getElementById("productEditDateTimeNow");
+    const dateInput = document.getElementById("productEditDate");
+    const timeInput = document.getElementById("productEditTime");
+
+    if (nowBtn && dateInput && timeInput) {
+        nowBtn.addEventListener("click", () => {
+            const now = new Date();
+
+            // Format YYYY-MM-DD
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, "0");
+            const day = String(now.getDate()).padStart(2, "0");
+            dateInput.value = `${year}-${month}-${day}`;
+
+            // Format HH:MM (24-hour)
+            const hours = String(now.getHours()).padStart(2, "0");
+            const minutes = String(now.getMinutes()).padStart(2, "0");
+            timeInput.value = `${hours}:${minutes}`;
+        });
+    }
 });
 
 ///////////////////////
@@ -468,11 +563,24 @@ async function loadProducts() {
 	});
 }
 
+// Load categories for edit dropdown
+async function loadCategoriesForEdit(selectedId) {
+	editCategorySelect.innerHTML = "";
+
+	const querySnap = await getDocs(collection(db, "categories"));
+	querySnap.forEach((doc) => {
+		const option = document.createElement("option");
+		option.value = doc.id;
+		option.textContent = doc.data().name;
+		if (doc.id === selectedId) {
+			option.selected = true;
+		}
+		editCategorySelect.appendChild(option);
+	});
+}
+
 //////////////////
 // On page load //
 //////////////////
-
-// Table body reference
-const tableBody = document.querySelector(".menu-table-container tbody");
 
 document.addEventListener("DOMContentLoaded", loadProducts);
