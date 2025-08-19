@@ -6,77 +6,58 @@
 body {
 	margin: 0;
 	padding: 0;
-	font-family: 'Lato', sans-serif;
+	font-family: Montserrat, sans-serif;
 }
 
-.menu-table-container {
-	background: white;
-	border: 2px solid #2B193C;
-	border-radius: 10px;
-	overflow-x: auto;
-	font-family: 'Lato', sans-serif;
-	font-weight: 600;
-	margin-right: 20px;
-	text-align: center;
-	min-width: 1000px;
-}
-
-.menu-header,
-.menu-row {
-	display: grid;
-	grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 0.5fr;
-	padding: 15px;
-	align-items: center;
-	gap: 10px;
-}
-
-.menu-header {
-	background-color: #f2edf8;
-	font-size: 16px;
+.welcome-message {
 	color: #2B193C;
-	border-bottom: 2px solid #ccc;
+	margin-bottom: 60px;
 	font-weight: bolder;
+	font-size: 30px;
+	text-align: left;
 }
 
-.menu-row {
-	border-bottom: 1px solid #ddd;
-	font-size: 15px;
-	color: #2B193C;
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.menu-row:last-child {
-	border-bottom: none;
+.right-buttons {
+  display: flex;
+  gap: 12px;
 }
 
-.badge {
-	padding: 5px 10px;
-	border-radius: 15px;
-	font-size: 12px;
-	font-weight: bold;
-	text-align: center;
-	display: inline-block;
-	min-width: 70px;
+/* Base button style */
+.btn {
+  padding: 12px 16px;
+  border: 2px solid #2B193C; /* fixed border */
+  font-weight: 600;
+  cursor: pointer;
+  font-family: Montserrat, sans-serif;
 }
 
-.badge.seated {
-	background-color: #58d68d;
-	color: #fff;
+/* Categories (left side) */
+.btn.categories {
+  background: #2B193C;
+  color: white;
 }
 
-.badge.cancelled {
-	background-color: #ec7063;
-	color: #fff;
+/* Delete (right side) */
+.btn.delete {
+  background: #2B193C;
+  color: white;
 }
 
-.badge.waiting {
-	background-color: #f4d03f;
-	color: #000;
+/* Add (right side) */
+.btn.add {
+  background: #2B193C;
+  color: white;
 }
 
-.dots {
-	font-size: 20px;
-	cursor: pointer;
-	text-align: center;
+.btn:hover {
+  background: #f2edf8;
+  color: #2B193C;
 }
 
 /* Header positioning */
@@ -154,7 +135,7 @@ header {
 	right: 120px;
 	text-align: right;
 	color: #ffffff;
-	font-family: 'Lato', sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: 14px;
 	line-height: 1.4;
 	z-index: 99;
@@ -210,15 +191,6 @@ header {
 	margin-right: 15px;
 }
 
-.welcome-message {
-	color: #2B193C;
-	padding: 15px;
-	border-radius: 8px;
-	font-weight: bolder;
-	font-size: 30px;
-	text-align: left;
-}
-
 .main-content {
 	margin-top: 20px;
 	margin-left: 250px;
@@ -231,80 +203,80 @@ header {
 	font-size: larger;
 }
 
-.sales-details {
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
-	gap: 50px;
-	padding: 20px;
-	border-radius: 10px;
-	flex-wrap: wrap;
+.menu-table-container {
+	background: white;
+	border: 2px solid #2B193C;
+	overflow-x: auto;
+	font-family: Montserrat, sans-serif;
+	font-weight: 600;
+	margin-right: 20px;
+	text-align: center;
+	min-width: 1000px;
+	border-collapse: collapse;
+	width: 100%;
 }
 
-.metric-inline {
-	display: flex;
-	align-items: center;
-	gap: 10px;
-	font-size: 17px;
-	font-weight: bolder;
-	color: #ffffff;
-	min-width: 250px;
+/* Hide default checkbox */
+.menu-table-container input[type="checkbox"] {
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	width: 18px;
+	height: 18px;
+	border: 2px solid #2B193C;
+	border-radius: 4px;
+	background-color: #fff;
+	cursor: pointer;
+	position: relative;
 }
 
-.metric-icon {
-	width: 24px;
-	height: 24px;
-	object-fit: contain;
+/* Hover effect */
+.menu-table-container input[type="checkbox"]:hover {
+	border-color: #5a2d82;
 }
 
-.order-number {
-	color: #ffffff;
-	font-weight: normal;
-	font-size: 16px;
+/* Checked state */
+.menu-table-container input[type="checkbox"]:checked {
+	background-color: #5a2d82;
+	border-color: #5a2d82;
 }
 
-.dashboard-content {
-	display: flex;
-	gap: 20px;
+.menu-table-container th,
+.menu-table-container td {
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
 }
 
-.sales-and-events {
-	flex: 2;
-	display: flex;
-	flex-direction: column;
-	gap: 20px;
+.menu-header {
+  background-color: #f2edf8;
+  font-size: 16px;
+  color: #2B193C;
+  font-weight: bolder;
 }
 
-.occupancy-row {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 20px;
-	background-color: #392855;
-	padding: 20px;
-	border-radius: 10px;
-	color: white;
+.menu-row td {
+  font-size: 15px;
+  color: #2B193C;
 }
 
-.occupancy-column {
-	flex: 1 1 calc(25% - 20px);
-	min-width: 200px;
-	background-color: #4b2e83;
-	padding: 15px;
-	border-radius: 8px;
-	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+.menu-row:last-child td {
+  border-bottom: none;
 }
 
-.occupancy-column h3 {
-	font-family: Lato;
-	font-size: 18px;
-	margin-bottom: 10px;
-	color: #ffffff;
+.badge {
+	padding: 5px 10px;
+	border-radius: 15px;
+	font-size: 12px;
+	font-weight: bold;
+	text-align: center;
+	display: inline-block;
+	min-width: 70px;
 }
 
-.occupancy-column p {
-	font-size: 16px;
-	margin: 6px 0;
-	color: #ffffff;
+.icon {
+	width: 30px;
+	height: auto;
+	cursor: pointer;
 }
 
 .status {
@@ -319,26 +291,250 @@ header {
 	color: #81c784;
 }
 
+/*****************/
+/* GENERAL MODAL */
+/*****************/
+
+/* Modal Background */
 .modal {
-	display: none;
+	display: none; /* hidden by default */
 	position: fixed;
+	z-index: 1000;
 	left: 0;
 	top: 0;
 	width: 100%;
 	height: 100%;
 	overflow: auto;
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: rgba(0,0,0,0.6);
 }
 
+/* Modal Content */
 .modal-content {
-	background-color: #fefefe;
-	margin: 15% auto;
-	padding: 20px;
-	border: 1px solid #888;
-	width: 300px;
-	border-radius: 5px;
-	text-align: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  width: 100%;
+  max-width: 1000px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
 }
+
+/* Close Button */
+.close-btn {
+	float: right;
+	font-size: 24px;
+	font-weight: bold;
+	cursor: pointer;
+	color: #2B193C;
+}
+
+.close-btn:hover {
+	color: red;
+}
+
+.modal-header h2 {
+	margin-top: 0;
+}
+
+.modal-container {
+  display: flex;
+  gap: 20px;              /* space between table and form */
+  align-items: flex-start; /* align items at the top */
+}
+
+/********************/
+/* CATEGORIES MODAL */
+/********************/
+
+/* Scrollable container */
+.categories-table-container {
+	height: 400px;
+	width: 60%;
+	overflow-y: auto;
+	border: 2px solid #2B193C; /* use same border for consistency */
+}
+
+/* Table inside category modal */
+.categories-table {
+	width: 100%;
+	border-collapse: collapse;
+	text-align: center;
+	font-family: Montserrat, sans-serif;
+	font-weight: 600;
+	color: #2B193C;
+	border: none;
+}
+
+/* Cells */
+.categories-table th, 
+.categories-table td {
+	border-bottom: 1px solid #ddd; /* use same border for consistency */
+	padding: 12px;
+	background: white; /* ensures background covers during scroll */
+}
+
+/* Sticky header */
+.categories-table th {
+	background-color: #f2edf8;
+	font-weight: bold;
+	position: sticky;
+	top: 0;
+	z-index: 2;
+}
+
+.modal-form {
+	display: flex;
+	flex-direction: column;
+	height: 100%; /* or use flex-grow if inside a flex parent */
+	flex: 1; /* allow it to grow if sibling uses flex too */
+}
+
+.modal-form form {
+	display: flex;
+	flex-direction: column;
+	flex: 1; /* fills parent height */
+}
+
+
+.modal-form h3 {
+	margin-top: 0;
+	color: #2B193C;
+}
+
+/* Form elements */
+.modal-form label {
+	display: block;
+	margin: 10px 0 5px;
+	font-weight: 600;
+	color: #2B193C;
+}
+
+.modal-form input,
+.modal-form textarea,
+.modal-form select {
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #2B193C;
+	box-sizing: border-box;
+	font-family: Montserrat, sans-serif;
+	font-size: 14px;
+	margin-bottom: 12px;
+}
+
+.modal-form textarea {
+	resize: none;
+}
+
+.modal-form .date-time-group {
+  display: flex;
+  gap: 15px; /* space between date & time */
+}
+
+.modal-form .date-time-group .form-field {
+  flex: 1; /* make them equal width */
+}
+
+.modal-form .date-time-group label {
+	display: block;
+	margin-bottom: 5px;
+	font-weight: 600;
+	color: #2B193C;
+}
+
+.modal-form .now-btn {
+    height: 42px; /* Match input field height */
+    padding: 0 10px; /* Keep horizontal padding only */
+    font-size: 14px;
+    width: 100%;
+    font-weight: 600;
+    background: #2B193C;
+    color: white;
+    border: 2px solid #2B193C;
+    cursor: pointer;
+    box-sizing: border-box; /* Include padding in height */
+    display: flex;          /* Vertically center text */
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-form input[type="date"],
+.modal-form input[type="time"] {
+    height: 42px; /* Ensure all fields share height */
+    box-sizing: border-box;
+}
+
+.modal-form .now-btn:hover {
+	background: #f2edf8;
+  	color: #2B193C;
+}
+
+.modal-form .btn.add {
+	margin-top: auto; /* pushes button to bottom */
+	width: 100%;
+	background: #2B193C;
+	color: white;
+	border: 2px solid #2B193C;
+	padding: 12px;
+	font-weight: 600;
+	cursor: pointer;
+}
+
+.modal-form .btn.add:hover {
+	background: #f2edf8;
+  	color: #2B193C;
+}
+
+/*************************/
+/* EDIT CATEGORIES MODAL */
+/*************************/
+
+#editCategoryModal .modal-content {
+	width: 25%;
+}
+
+.modal-actions {
+	display: flex;
+	justify-content: flex-end; /* align to the right */
+	gap: 10px; /* small space between buttons */
+	margin-top: 20px;
+}
+
+.btn.save,
+.btn.delete {
+	padding: 10px 16px;
+	font-weight: 600;
+	cursor: pointer;
+	border: none;
+}
+
+.btn.save {
+	background: #2B193C;
+	color: white;
+  	border: 2px solid #2B193C;
+}
+
+.btn.save:hover {
+	background: #f2edf8;
+	color: #2B193C;
+	border: 2px solid #2B193C;
+}
+
+.btn.delete {
+	background: rgb(255, 78, 78);
+	color: white;
+	border: 2px solid red;
+}
+
+.btn.delete:hover {
+	background: #ffe6e6;
+	color: red;
+}
+
+/******************/
+/* RESPONSIVENESS */
+/******************/
 
 @media (max-width: 875px) {
 	header {
