@@ -29,6 +29,45 @@ const outdoorButton = document.getElementById('outdoor-button');
 const reservationForm = document.querySelector('.reservation-form');
 const resultMessage = document.querySelector('.result-message strong');
 
+// Customer modals
+let modalOverlay; // created lazily
+function ensureModalOverlay() {
+	if (modalOverlay) return modalOverlay;
+	modalOverlay = document.createElement('div');
+	modalOverlay.style.position = 'fixed';
+	modalOverlay.style.left = '0';
+	modalOverlay.style.top = '0';
+	modalOverlay.style.width = '100%';
+	modalOverlay.style.height = '100%';
+	modalOverlay.style.background = 'rgba(0,0,0,0.5)';
+	modalOverlay.style.display = 'none';
+	modalOverlay.style.zIndex = '1000';
+	document.body.appendChild(modalOverlay);
+	return modalOverlay;
+}
+function showModal(contentNode) {
+	const overlay = ensureModalOverlay();
+	overlay.innerHTML = '';
+	const modal = document.createElement('div');
+	modal.style.position = 'fixed';
+	modal.style.top = '50%';
+	modal.style.left = '50%';
+	modal.style.transform = 'translate(-50%, -50%)';
+	modal.style.background = '#fff';
+	modal.style.padding = '20px';
+	modal.style.width = '90%';
+	modal.style.maxWidth = '420px';
+	modal.style.boxShadow = '0 4px 12px rgba(0,0,0,0.2)';
+	modal.style.fontFamily = 'Montserrat, sans-serif';
+	modal.appendChild(contentNode);
+	overlay.appendChild(modal);
+	overlay.style.display = 'block';
+	return overlay;
+}
+function hideModal() {
+	if (modalOverlay) modalOverlay.style.display = 'none';
+}
+
 // Track selection
 let selectedDate = null;
 let selectedTime = null;
@@ -131,10 +170,44 @@ async function checkAvailability(dateStr, timeStr, people) {
 
 function ensureSelectionSet() {
 	if (!selectedDate || !selectedTime || !selectedPeople) {
-		alert('Please choose date, time, and number of people, then click "Check Availability".');
+		showInfoModal('Please choose date, time, and number of people, then click "Check Availability".');
 		return false;
 	}
 	return true;
+}
+
+function showInfoModal(message) {
+	const content = document.createElement('div');
+	content.innerHTML = `
+		<div style="font-weight:700;margin-bottom:10px;">Info</div>
+		<div style="margin-bottom:16px;">${message}</div>
+		<div style="display:flex;justify-content:flex-end;gap:10px;">
+			<button id="infoOkBtn" style="padding:8px 12px;background:#2B193C;color:#fff;border:2px solid #2B193C;font-weight:600;cursor:pointer;">OK</button>
+		</div>
+	`;
+	showModal(content);
+	document.getElementById('infoOkBtn').addEventListener('click', hideModal);
+}
+
+function showNameConfirmModal(tableId, onConfirm) {
+	const content = document.createElement('div');
+	content.innerHTML = `
+		<div style="font-weight:700;margin-bottom:10px;">Confirm Reservation</div>
+		<label style="display:block;margin-bottom:6px;">Reservation Name</label>
+		<input id="reservationNameInput" type="text" placeholder="Mr. Gulper" style="width:100%;padding:10px;border:1px solid #2B193C;margin-bottom:12px;"/>
+		<div style="display:flex;justify-content:flex-end;gap:10px;">
+			<button id="nameCancelBtn" style="padding:8px 12px;border:2px solid #2B193C;font-weight:600;cursor:pointer;">Cancel</button>
+			<button id="nameConfirmBtn" style="padding:8px 12px;background:#2B193C;color:#fff;border:2px solid #2B193C;font-weight:600;cursor:pointer;">Confirm</button>
+		</div>
+	`;
+	showModal(content);
+	document.getElementById('nameCancelBtn').addEventListener('click', hideModal);
+	document.getElementById('nameConfirmBtn').addEventListener('click', () => {
+		const name = (document.getElementById('reservationNameInput').value || '').trim();
+		if (!name) return; // keep modal open until filled
+		hideModal();
+		onConfirm(name);
+	});
 }
 
 async function handleTableClick(event) {
@@ -146,47 +219,69 @@ async function handleTableClick(event) {
 	if (!ensureSelectionSet()) return;
 
 	if (reservedTableIdsForSelection.has(tableId) || img.src.includes('reserved.png')) {
-		alert('Sorry, this table is already reserved for the selected time.');
+		showInfoModal('Sorry, this table is already reserved for the selected time.');
 		return;
 	}
 
 	if (selectedPeople > capacity) {
-		alert(`This table seats up to ${capacity}. Please reduce party size or choose another table.`);
+		showInfoModal(`This table seats up to ${capacity}. Please reduce party size or choose another table.`);
 		return;
 	}
 
 	if (!currentUser) {
-		const goLogin = confirm('You need to be logged in to book. Go to login page?');
-		if (goLogin) window.location.href = 'login.html';
+		const content = document.createElement('div');
+		content.innerHTML = `
+			<div style="font-weight:700;margin-bottom:10px;">Login Required</div>
+			<div style="margin-bottom:16px;">You need to be logged in to book. Go to login page?</div>
+			<div style="display:flex;justify-content:flex-end;gap:10px;">
+				<button id="cancelLogin" style="padding:8px 12px;border:2px solid #2B193C;font-weight:600;cursor:pointer;">Cancel</button>
+				<button id="goLogin" style="padding:8px 12px;background:#2B193C;color:#fff;border:2px solid #2B193C;font-weight:600;cursor:pointer;">Go to Login</button>
+			</div>
+		`;
+		showModal(content);
+		document.getElementById('cancelLogin').addEventListener('click', hideModal);
+		document.getElementById('goLogin').addEventListener('click', () => { window.location.href = 'login.html'; });
 		return;
 	}
 
-	// Confirm reservation details before saving
-	const confirmationText = `Confirm reservation?\n\nTable: ${tableId}\nDate: ${selectedDate}\nTime: ${selectedTime}\nPeople: ${selectedPeople}`;
-	if (!confirm(confirmationText)) {
-		return;
-	}
-
-	try {
-		await addDoc(collection(db, 'reservations'), {
-			userId: currentUser.uid,
-			tableId,
-			area: parseAreaFromTableId(tableId),
-			date: selectedDate,
-			time: selectedTime,
-			slot: `${selectedDate}T${selectedTime}`,
-			people: selectedPeople,
-			status: 'booked',
-			createdAt: serverTimestamp()
+	showNameConfirmModal(tableId, async (name) => {
+		const confirmationText = `Confirm reservation?\n\nTable: ${tableId}\nDate: ${selectedDate}\nTime: ${selectedTime}\nPeople: ${selectedPeople}\nName: ${name}`;
+		const content = document.createElement('div');
+		content.innerHTML = `
+			<div style="font-weight:700;margin-bottom:10px;">Confirm Details</div>
+			<pre style="white-space:pre-wrap;font-family:inherit;margin:0 0 12px 0;">${confirmationText}</pre>
+			<div style="display:flex;justify-content:flex-end;gap:10px;">
+				<button id="reserveCancelBtn" style="padding:8px 12px;border:2px solid #2B193C;font-weight:600;cursor:pointer;">Cancel</button>
+				<button id="reserveOkBtn" style="padding:8px 12px;background:#2B193C;color:#fff;border:2px solid #2B193C;font-weight:600;cursor:pointer;">Confirm</button>
+			</div>
+		`;
+		showModal(content);
+		document.getElementById('reserveCancelBtn').addEventListener('click', hideModal);
+		document.getElementById('reserveOkBtn').addEventListener('click', async () => {
+			try {
+				await addDoc(collection(db, 'reservations'), {
+					userId: currentUser.uid,
+					name,
+					tableId,
+					area: parseAreaFromTableId(tableId),
+					date: selectedDate,
+					time: selectedTime,
+					slot: `${selectedDate}T${selectedTime}`,
+					people: selectedPeople,
+					status: 'booked',
+					createdAt: serverTimestamp()
+				});
+				reservedTableIdsForSelection.add(tableId);
+				img.src = img.src.replace('available.png', 'reserved.png').replace('table-select.png', 'reserved.png');
+				hideModal();
+				showInfoModal('Reservation confirmed!');
+			} catch (e) {
+				console.error('Reservation error:', e);
+				hideModal();
+				showInfoModal('Failed to reserve table. Please try again.');
+			}
 		});
-
-		reservedTableIdsForSelection.add(tableId);
-		img.src = img.src.replace('available.png', 'reserved.png').replace('table-select.png', 'reserved.png');
-		alert('Reservation confirmed!');
-	} catch (e) {
-		console.error('Reservation error:', e);
-		alert('Failed to reserve table. Please try again.');
-	}
+	});
 }
 
 function attachTableClickHandlers() {
@@ -207,7 +302,7 @@ if (reservationForm) {
 		const people = parseInt(formData.get('people') || '0', 10);
 
 		if (!dateStr || !timeStr || !people) {
-			alert('Please fill date, time, and number of people.');
+			showInfoModal('Please fill date, time, and number of people.');
 			return;
 		}
 
