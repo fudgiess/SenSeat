@@ -74,7 +74,6 @@
         </div>
 
         <!-- Add Product Modal -->
-        <!-- Add Product Modal -->
         <div id="addProductModal" class="modal">
             <div class="modal-content">
                 <div class="modal-header">
@@ -121,7 +120,51 @@
             </div>
         </div>
 
-        <!-- Modal -->
+        <!-- Edit Product Modal -->
+        <div id="editProductModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close-btn" id="closeEditModal">&times;</span>
+                    <h2>Edit Product</h2>
+                </div>
+
+                <form id="editProductForm" class="modal-form">
+                    <label for="editName">Name</label>
+                    <input type="text" id="editName" name="editName" required>
+
+                    <!-- Upload New Image here -->
+
+                    <label for="editCategory">Category</label>
+                    <select id="editCategory" name="editCategory" required></select>
+
+                    <label for="editPrice">Price</label>
+                    <input type="number" id="editPrice" name="editPrice" required step="0.01">
+
+                    <div class="date-time-group">
+                        <div class="form-field">
+                            <label for="productEditDate">Date</label>
+                            <input type="date" id="productEditDate" name="productEditDate" required>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="productEditTime">Time</label>
+                            <input type="time" id="productEditTime" name="productEditTime" required>
+                        </div>
+
+                        <div class="form-field">
+                            <label>&nbsp;</label>
+                            <button type="button" class="now-btn" id="productEditDateTimeNow">Now</button>
+                        </div>
+                    </div>
+
+                    <div class="modal-actions">
+                        <button type="submit" class="btn save">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Categories Modal -->
         <div id="categoriesModal" class="modal">
             <div class="modal-content">
                 <div class="modal-header">
