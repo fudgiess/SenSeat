@@ -1,59 +1,26 @@
-.hero {
+/* ---------- Background ---------- */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Montserrat, sans-serif;
+    background: url('../assets/images/background.png') no-repeat center center fixed;
+    background-size: cover;
     position: relative;
-    width: 100%;
-    height: 100vh; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 60px;
 }
 
-.hero::before {
+body::before {
     content: "";
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0,0,0,0.5); /* black overlay */
-    z-index: 1;
+    position: fixed;
+    top: 0; 
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    filter: blur(8px);
+    z-index: -1;
 }
 
-.hero-content {
-    position: relative;
-    z-index: 2;
-    color: #fff;
-    text-align: center;
-}
-
-.hero-content h1 {
-    font-size: 3rem;
-    font-family: Montserrat, sans-serif;
-    font-weight: bold;
-    margin: 0.1em 0;
-}
-
-.hero-content p {
-    font-size: 1.5rem;
-    font-family: Montserrat, sans-serif;
-    margin: 0.5rem 0;
-}
-
-.hero-content .button {
-    background: #7c5e99;
-    color: #fff;
-    padding: 0.75em 2em;
-    border: none;
-    border-radius: 4px;
-    text-decoration: none;
-    font-size: 1.1rem;
-    margin-top: 1em;
-    display: inline-block;
-    transition: background 0.2s;
-    font-family: Montserrat, sans-serif;
-}
-
-.hero-content .button:hover {
-    background: #5a4373;
-}
-
+/* ---------- Header ---------- */
 header {
     width: 100%;
     background: #10181b;
@@ -81,9 +48,48 @@ header {
     flex-shrink: 0; /* Prevents logo from shrinking */
 }
 
+.profile-link {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	width: 68px;
+	height: 100%;
+	cursor: pointer;
+}
+
+.profile-dropdown {
+	display: none;
+	position: absolute;
+	top: 75%;
+	right: 0;
+	background-color: white;
+	border: 1px solid #ccc;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+	min-width: 120px;
+	z-index: 10;
+}
+
+.profile-dropdown a {
+	display: block;
+	padding: 8px 16px;
+	color: #000;
+	text-decoration: none;
+	font-size: 14px;
+}
+
+.profile-dropdown a:hover {
+	background-color: #cacaca;
+}
+
 #logo {
     height: 40px;
-    width: auto;
+    width: 68px;
+}
+
+#profile {
+    height: auto;
+    width: 35px;
 }
 
 nav {
@@ -94,18 +100,18 @@ nav {
 
 .nav-list {
     display: flex;
-    gap: 2.5em;
+    gap: 30px;
     list-style: none;
     margin: 0;
+    margin-left: 33px;
     padding: 0;
 }
 
 .nav-list li a {
     color: #fff;
     text-decoration: none;
-    font-size: 1.1em;
+    font-size: 17px;
     letter-spacing: 1px;
-    transition: color 0.2s;
 }
 
 .nav-list li a:hover {
@@ -122,7 +128,7 @@ nav {
     font-size: 1em;
     font-weight: 500;
     transition: background 0.2s;
-    margin-left: auto; /* Pushes login to the far right */
+    margin-left: auto;
     text-align: center;
     display: flex;
     align-items: center;
@@ -133,101 +139,162 @@ nav {
     background: #5a4373;
 }
 
-body {
-    margin: 0;
-    padding: 0;
-}
-
-html, body {
-    border: none;
-    outline: none;
-}
-
-.header-container > nav {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-} 
-
-.info-sections {
-    width: 100%;
-    background: #fff;
-    padding: 3em 0;
-    box-sizing: border-box;
-}
-
-.menu-hospitality, .about-section {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 2em;
-    max-width: 1200px;
-    margin: 0 auto 3em auto;
-    flex-wrap: wrap;
-}
-
-.menu-images, .about-images {
-    display: flex;
-    gap: 1.5em;
-}
-
-.menu-image-card, .about-image-card {
-    background: #fff;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-    width: 300px;
-    text-align: center;
-}
-
-.menu-image-card img, .about-image-card img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.menu-image-caption {
-    font-weight: bold;
-    font-size: 1.2em;
-    padding: 0.5em 0;
-    background: #fff;
-}
-
-.menu-description, .about-description {
-    max-width: 400px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+/* ---------- Menu Section ---------- */
+.menu-section {
+    padding: 7em 2em 3em 2em; /* padding-top for fixed header */
+    min-height: 100vh;
     font-family: Montserrat, sans-serif;
 }
 
-.menu-description h2, .about-description h2 {
-    font-size: 2em;
-    margin-bottom: 1px
+/* Search + Cart */
+.menu-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    margin-bottom: 1.5em;
 }
 
-.menu-description p, .about-description p {
+.menu-search {
+    flex: 1; /* makes it take available width */
+    max-width: 400px; /* keeps it from being too wide */
+    padding: 0.7em;
+    border-radius: 1px;
+    border: 1px solid #979696;
     font-size: 1em;
+}
+
+/* Search Button */
+.search-btn {
+    background: #7c5e99;
+    border: none;
+    padding: 0.6em 1em;
+    border-radius: 0px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-btn img {
+    width: 18px;
+    height: 18px;
+    border-radius: 1px;
+}
+
+/* Cart Button */
+.cart-btn {
+    background: #7c5e99;
+    border: none;
+    padding: 0.6em 1em;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart-btn img {
+    width: 20px;
+    height: 20px;
+}
+
+/* Categories */
+.menu-categories {
+    display: flex;
+    justify-content: center;
+    gap: 1.5em;
+    margin-bottom: 2em;
+}
+
+.menu-categories button {
+    background: transparent;
+    border: none;
+    font-size: 1em;
+    cursor: pointer;
+    padding: 0.5em 1em;
+    color: #ffffff;
+    transition: 0.2s;
+}
+
+.menu-categories button:hover,
+.menu-categories button.active {
+    border-bottom: 2px solid #7c5e99;
+    color: #7c5e99;
+    font-weight: bold;
+}
+
+/* Menu Grid */
+.menu-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 24px;
+    max-width: 1200px;   /* same width as your header/nav */
+    margin: 0 auto;      /* center it */
+    width: 100%;
+}
+
+/* Menu Cards */
+.menu-card {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    text-align: center;
+    padding: 1em;
+    position: relative;
+    width: 250px;
+    color: #fff;
+    min-height: 400px;
+    width: 100%;        /* make card fill column */
+    max-width: 250px;   /* control card size */
+}
+
+.menu-card img {
+    width: 100%;
+    border-radius: 1px;
+    margin-bottom: 0.5em;
+}
+
+.menu-card h3 {
+    font-size: 1.2em;
+    margin: 0.5em 0;
+}
+
+.menu-card p {
+    font-size: 0.9em;
     margin-bottom: 1em;
 }
 
-.explore-button, .learnmore-button {
-    background: #10181b;
+.menu-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;  
+    font-size: 18px;      
+    font-weight: 600;
     color: #fff;
-    padding: 0.75em 2em;
-    border: none;
-    border-radius: 4px;
-    text-decoration: none;
-    font-size: 1em;
-    transition: background 0.2s;
-    display: inline-block;
-    width: fit-content;
+    line-height: 1;
 }
 
-.explore-button:hover, .learnmore-button:hover {
-    background: #7c5e99;
-} 
+.servings {
+    display: inline-flex;
+    align-items: center;    
+    gap: 6px;         
+    font-size: 0.95em;
+    font-weight: 600;
+}
 
+.servings img {
+    width: 17px;
+    height: 17px;
+    vertical-align: middle; 
+    line-height: 1;
+}
+
+/* ---------- Footer ---------- */
 footer {
     background: #10181b;
     color: #fff;
@@ -278,10 +345,6 @@ footer {
     margin-right: 2.5em;
     margin-bottom: 1em;
     text-align: center;
-    color: #fff;
-    border-radius: 50%;
-    font-size: 1em;
-    line-height: 24px;
 }
 
 .footer-logo {
@@ -297,10 +360,8 @@ footer {
     line-height: 1.5;
     font-weight: lighter;
 }
-.footer-col.hours h3 {
-    font-size: 1.5em;
-    line-height: 1em;
-}
+
+.footer-col.hours h3,
 .footer-col.contact h3 {
     font-size: 1.5em;
     line-height: 1em;
@@ -313,153 +374,4 @@ footer {
     padding: 0.7em 0 1em 0;
     border-top: 1px solid #222;
     margin-top: 1em;
-} 
-
-/* ---------------- MENU SECTION ---------------- */
-.menu-section {
-    padding: 2em;
-    background: url("assets/images/gulperslogo.png") no-repeat center center/cover;
-    min-height: 100vh;
-    font-family: Montserrat, sans-serif;
-    display: flex;
-    flex-direction: column;
-    gap: 2em;
-}
-
-/* Search + Cart */
-.menu-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1em;
-    margin-bottom: 1.5em;
-}
-
-.menu-search {
-    width: 60%;
-    padding: 0.8em;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 1em;
-}
-
-/* Cart Button */
-.cart-btn {
-    background: #7c5e99;
-    border: none;
-    padding: 0.6em 1em;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-.cart-btn img {
-    width: 20px;
-    height: 20px;
-}
-
-/* Categories */
-.menu-categories {
-    display: flex;
-    justify-content: center;
-    gap: 1.5em;
-    margin-bottom: 2em;
-}
-
-.menu-categories button {
-    background: transparent;
-    border: none;
-    font-size: 1em;
-    cursor: pointer;
-    padding: 0.5em 1em;
-    color: #000000;
-    transition: 0.2s;
-}
-
-.menu-categories .active,
-.menu-categories button:hover {
-    border-bottom: 2px solid #7c5e99;
-    color: #7c5e99;
-}
-
-/* Menu Grid */
-.menu-grid {
-    display: flex;               
-    justify-content: center;     
-    gap: 2em;                     
-    flex-wrap: wrap;              
-}
-
-/* Menu Cards (Frosted Glass) */
-.menu-card {
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-    text-align: center;
-    padding: 1em;
-    position: relative;
-    width: 260px;
-    color: #000000;
-}
-
-.menu-card img {
-    width: 100%;
-    border-radius: 8px;
-    margin-bottom: 0.5em;
-}
-
-.menu-card h3 {
-    font-size: 1.2em;
-    color: #000000;
-    margin: 0.5em 0;
-}
-
-.menu-card p {
-    font-size: 0.9em;
-    color: #919191;
-    margin-bottom: 1em;
-}
-
-.menu-info {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 1em;
-    font-size: 1.2em;
-    font-weight: 600;
-    color: #000000;
-}
-
-/* Add to Cart Button */
-.add-to-cart {
-    background: #7c5e99;
-    color: #fff;
-    border: none;
-    padding: 0.5em 1.65em;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1.25em;
-    transition: 0.2s;
-}
-
-.menu-info .servings {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.icon {
-    width: 18px;
-    height: 18px;
-    object-fit: contain;
-}
-
-.add-to-cart:hover {
-    background: #5a4373;
-}
-
-.add-to-cart img {
-    width: 20px;
-    height: 20px;
 }
