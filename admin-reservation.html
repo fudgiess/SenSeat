@@ -44,9 +44,12 @@
     
         <div class="main-content">
             <div class="welcome-message">Customer Reservations</div>
-            <div class="buttons-container" style="display:flex;justify-content:flex-end;gap:12px;">
-                <button class="btn delete" id="deleteSelected" style="background:#2B193C;color:#fff;border:2px solid #2B193C;padding:12px 16px;font-weight:600;cursor:pointer;">Delete Selected</button>
-                <button class="btn add" id="openAddReservation" style="background:#2B193C;color:#fff;border:2px solid #2B193C;padding:12px 16px;font-weight:600;cursor:pointer;">Add Reservation</button>
+            <div class="buttons-container">
+                <div></div>
+                <div class="right-buttons">
+                    <button class="btn delete" id="deleteSelected">Delete Selected</button>
+                    <button class="btn add" id="openAddReservation">Add Reservation</button>
+                </div>
             </div>
             <div class="reservation-table-container">
                 <div class="reservation-header">
@@ -73,23 +76,21 @@
         </div>
 
         <!-- Add Reservation Modal -->
-        <div id="addReservationModal" class="modal" style="display:none;">
-            <div class="modal-content" style="max-width:600px;text-align:left;padding:24px;">
+        <div id="addReservationModal" class="modal">
+            <div class="modal-content">
                 <div class="modal-header">
-                    <span class="close-btn" id="closeAddReservation" style="float:right;font-size:24px;font-weight:bold;cursor:pointer;color:#2B193C;">&times;</span>
+                    <span class="close-btn" id="closeAddReservation">&times;</span>
                     <h2>Add Reservation</h2>
                 </div>
-                <form id="addReservationForm" class="modal-form" style="display:flex;flex-direction:column;gap:10px;">
+                <form id="addReservationForm" class="modal-form">
                     <label for="arName">Name</label>
                     <input type="text" id="arName" name="name" placeholder="Mr. Gulper" required>
-                    <br>
 
                     <label for="arArea">Area</label>
                     <select id="arArea" name="area" required>
                         <option value="inside">Inside</option>
                         <option value="outside">Outside</option>
                     </select>
-                    <br>
 
                     <label for="arTableId">Table</label>
                     <select id="arTableId" name="tableId" required>
@@ -107,25 +108,25 @@
                         <option value="OU5">OU5</option>
                         <option value="OU6">OU6</option>
                     </select>
-                    <br>
-                    <div class="date-time-group" style="display:flex;gap:15px;">
-                        <div class="form-field" style="flex:1;">
+
+                    <div class="date-time-group">
+                        <div class="form-field">
                             <label for="arDate">Date</label>
                             <input type="date" id="arDate" name="date" required>
                         </div>
-                        <br>
-                        <div class="form-field" style="flex:1;">
+                        <div class="form-field">
                             <label for="arTime">Time</label>
                             <input type="time" id="arTime" name="time" required>
                         </div>
-                        <div class="form-field" style="flex:0.6;display:flex;align-items:flex-end;">
-                            <button type="button" id="arNowBtn" class="now-btn" style="height:42px;padding:0 10px;font-weight:600;background:#2B193C;color:#fff;border:2px solid #2B193C;cursor:pointer;width:100%;">Now</button>
+                        <div class="form-field">
+                            <label>&nbsp;</label>
+                            <button type="button" id="arNowBtn" class="now-btn">Now</button>
                         </div>
                     </div>
-                    <br>
+
                     <label for="arPeople">No. of People</label>
                     <input type="number" id="arPeople" name="people" min="1" max="20" required>
-                    <br>
+
                     <label for="arStatus">Status</label>
                     <select id="arStatus" name="status" required>
                         <option value="booked">Booked</option>
@@ -133,9 +134,9 @@
                         <option value="waiting">Waiting</option>
                         <option value="cancelled">Cancelled</option>
                     </select>
-                    <br>
-                    <div class="modal-actions" style="display:flex;justify-content:flex-end;gap:10px;margin-top:20px;">
-                        <button type="submit" class="btn save" style="padding:10px 16px;font-weight:600;cursor:pointer;background:#2B193C;color:#fff;border:2px solid #2B193C;">Save</button>
+
+                    <div class="modal-actions">
+                        <button type="submit" class="btn save">Save</button>
                     </div>
                 </form>
             </div>
