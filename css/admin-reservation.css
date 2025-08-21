@@ -22,7 +22,7 @@ body {
 .reservation-header,
 .reservation-row {
 	display: grid;
-	grid-template-columns: 2fr 1fr 1fr 1fr 1fr 0.5fr;
+	grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr 1fr 0.5fr;
 	padding: 15px;
 	align-items: center;
 }
@@ -56,6 +56,11 @@ body {
 }
 
 .badge.seated {
+	background-color: #4da3ff;
+	color: #fff;
+}
+
+.badge.booked {
 	background-color: #58d68d;
 	color: #fff;
 }
@@ -653,6 +658,36 @@ header {
 	font-weight: bolder;
 	margin-bottom: 15px;
 	text-align: left;
+}
+
+/* Match admin-menu checkbox styling inside reservation table */
+.reservation-table-container input[type="checkbox"] {
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	width: 18px;
+	height: 18px;
+	border: 2px solid #2B193C;
+	border-radius: 4px;
+	background-color: #fff;
+	cursor: pointer;
+	position: relative;
+}
+
+.reservation-table-container input[type="checkbox"]:hover {
+	border-color: #5a2d82;
+}
+
+.reservation-table-container input[type="checkbox"]:checked {
+	background-color: #5a2d82;
+	border-color: #5a2d82;
+}
+
+/* Ensure more icon size matches admin-menu */
+.reservation-table-container .icon {
+	width: 30px;
+	height: auto;
+	cursor: pointer;
 }
 
 @media (max-width: 875px) {
