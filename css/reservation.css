@@ -69,6 +69,46 @@ input[type="number"] {
     margin-bottom: 1.5em;
 }
 
+
+.profile-link {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	width: 68px;
+	height: 100%;
+	cursor: pointer;
+}
+
+.profile-dropdown {
+	display: none;
+	position: absolute;
+	top: 75%;
+	right: 0;
+	background-color: white;
+	border: 1px solid #ccc;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+	min-width: 120px;
+	z-index: 10;
+}
+
+.profile-dropdown a {
+	display: block;
+	padding: 8px 16px;
+	color: #000;
+	text-decoration: none;
+	font-size: 14px;
+}
+
+.profile-dropdown a:hover {
+	background-color: #cacaca;
+}
+#profile {
+    height: auto;
+    width: 35px;
+}
+
+
 .legend {
     display: flex;
     justify-content: left;
