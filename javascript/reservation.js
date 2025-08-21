@@ -182,7 +182,7 @@ function showInfoModal(message) {
 		<div style="font-weight:700;margin-bottom:10px;">Info</div>
 		<div style="margin-bottom:16px;">${message}</div>
 		<div style="display:flex;justify-content:flex-end;gap:10px;">
-			<button id="infoOkBtn" style="padding:8px 12px;background:#2B193C;color:#fff;border:2px solid #2B193C;font-weight:600;cursor:pointer;">OK</button>
+			<button id="infoOkBtn" style="padding:8px 12px;background:#2B193C;color:#fff;border:2px solid #2B193C;font-weight:600;cursor:pointer;font-family:Montserrat, sans-serif;">OK</button>
 		</div>
 	`;
 	showModal(content);
@@ -194,10 +194,10 @@ function showNameConfirmModal(tableId, onConfirm) {
 	content.innerHTML = `
 		<div style="font-weight:700;margin-bottom:10px;">Confirm Reservation</div>
 		<label style="display:block;margin-bottom:6px;">Reservation Name</label>
-		<input id="reservationNameInput" type="text" placeholder="Mr. Gulper" style="width:100%;padding:10px;border:1px solid #2B193C;margin-bottom:12px;"/>
+		<input id="reservationNameInput" type="text" placeholder="Mr. Gulper" style="width:calc(100% - 12px);padding:10px;border:1px solid #2B193C;margin-bottom:12px;box-sizing:border-box;"/>
 		<div style="display:flex;justify-content:flex-end;gap:10px;">
-			<button id="nameCancelBtn" style="padding:8px 12px;border:2px solid #2B193C;font-weight:600;cursor:pointer;">Cancel</button>
-			<button id="nameConfirmBtn" style="padding:8px 12px;background:#2B193C;color:#fff;border:2px solid #2B193C;font-weight:600;cursor:pointer;">Confirm</button>
+			<button id="nameCancelBtn" style="padding:8px 12px;border:2px solid #2B193C;font-weight:600;cursor:pointer;font-family:Montserrat, sans-serif;">Cancel</button>
+			<button id="nameConfirmBtn" style="padding:8px 12px;background:#2B193C;color:#fff;border:2px solid #2B193C;font-weight:600;cursor:pointer;font-family:Montserrat, sans-serif;">Confirm</button>
 		</div>
 	`;
 	showModal(content);
@@ -234,8 +234,8 @@ async function handleTableClick(event) {
 			<div style="font-weight:700;margin-bottom:10px;">Login Required</div>
 			<div style="margin-bottom:16px;">You need to be logged in to book. Go to login page?</div>
 			<div style="display:flex;justify-content:flex-end;gap:10px;">
-				<button id="cancelLogin" style="padding:8px 12px;border:2px solid #2B193C;font-weight:600;cursor:pointer;">Cancel</button>
-				<button id="goLogin" style="padding:8px 12px;background:#2B193C;color:#fff;border:2px solid #2B193C;font-weight:600;cursor:pointer;">Go to Login</button>
+				<button id="cancelLogin" style="padding:8px 12px;border:2px solid #2B193C;font-weight:600;cursor:pointer;font-family:Montserrat, sans-serif;">Cancel</button>
+				<button id="goLogin" style="padding:8px 12px;background:#2B193C;color:#fff;border:2px solid #2B193C;font-weight:600;cursor:pointer;font-family:Montserrat, sans-serif;">Go to Login</button>
 			</div>
 		`;
 		showModal(content);
@@ -251,8 +251,8 @@ async function handleTableClick(event) {
 			<div style="font-weight:700;margin-bottom:10px;">Confirm Details</div>
 			<pre style="white-space:pre-wrap;font-family:inherit;margin:0 0 12px 0;">${confirmationText}</pre>
 			<div style="display:flex;justify-content:flex-end;gap:10px;">
-				<button id="reserveCancelBtn" style="padding:8px 12px;border:2px solid #2B193C;font-weight:600;cursor:pointer;">Cancel</button>
-				<button id="reserveOkBtn" style="padding:8px 12px;background:#2B193C;color:#fff;border:2px solid #2B193C;font-weight:600;cursor:pointer;">Confirm</button>
+				<button id="reserveCancelBtn" style="padding:8px 12px;border:2px solid #2B193C;font-weight:600;cursor:pointer;font-family:Montserrat, sans-serif;">Cancel</button>
+				<button id="reserveOkBtn" style="padding:8px 12px;background:#2B193C;color:#fff;border:2px solid #2B193C;font-weight:600;cursor:pointer;font-family:Montserrat, sans-serif;">Confirm</button>
 			</div>
 		`;
 		showModal(content);
