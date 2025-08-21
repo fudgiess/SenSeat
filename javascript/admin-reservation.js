@@ -81,15 +81,16 @@ function renderRow(collectionName, docId, data) {
 	const time = data.time ? formatTimeToDisplay(data.time) : "—";
 	const guests = data.people != null ? data.people : "—";
 	const status = (data.status || "").toLowerCase();
-	const badgeClass = status === "seated" ? "seated" : status === "waiting" ? "waiting" : status === "cancelled" ? "cancelled" : "";
+	const badgeClass = status === "seated" ? "seated" : status === "waiting" ? "waiting" : status === "cancelled" ? "cancelled" : status === "booked" ? "booked" : "";
 
 	row.innerHTML = `
-		<div><input type="checkbox" class="select-res" data-id="${docId}" data-col="${collectionName}" style="margin-right:8px;"> ${name}</div>
+		<div><input type=\"checkbox\" class=\"select-res\" data-id=\"${docId}\" data-col=\"${collectionName}\"></div>
+		<div>${name}</div>
 		<div>${table}</div>
 		<div>${time}</div>
 		<div>${guests}</div>
-		<div><span class="badge ${badgeClass}">${status ? status.toUpperCase() : "—"}</span></div>
-		<div><img src="assets/images/icons/more.png" class="icon more-btn" data-id="${docId}" data-col="${collectionName}"></div>
+		<div><span class=\"badge ${badgeClass}\">${status ? status.toUpperCase() : "—"}</span></div>
+		<div><img src=\"assets/images/icons/more.png\" class=\"icon more-btn\" data-id=\"${docId}\" data-col=\"${collectionName}\"></div>
 	`;
 	return row;
 }
